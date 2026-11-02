@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>产品中心 - 我的企业官网</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "Microsoft YaHei", sans-serif; color: #333; line-height: 1.6; }
+header { background: #1a3a5c; color: white; padding: 1rem 0; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; display: flex; justify-content: space-between; align-items: center; }
+header h1 { font-size: 1.4rem; }
+nav a { color: white; text-decoration: none; margin-left: 1.5rem; font-size: 0.9rem; }
+.page-title { text-align: center; padding: 3rem 1rem; background: #f8f9fa; }
+.products { max-width: 1100px; margin: 3rem auto; padding: 0 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+.product-card { border: 1px solid #eee; padding: 1.5rem; border-radius: 4px; text-align: center; }
+.product-card h3 { color: #1a3a5c; margin-bottom: 1rem; }
+footer { background: #0d2438; color: #aaa; padding: 2rem 1rem; text-align: center; margin-top: 3rem; }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1>我的企业官网</h1>
+    <nav>
+      <a href="index.html">首页</a>
+      <a href="products.html">产品中心</a>
+      <a href="about.html">关于我们</a>
+      <a href="contact.html">联系我们</a>
+    </nav>
+  </div>
+</header>
+<section class="page-title">
+  <h2>产品中心</h2>
+  <p>持续更新中，欢迎咨询</p>
+</section>
+<div class="products">
+  <div class="product-card">
+    <h3>产品 A</h3>
+    <p>产品简介与参数说明...</p>
+  </div>
+  <div class="product-card">
+    <h3>产品 B</h3>
+    <p>产品简介与参数说明...</p>
+  </div>
+  <div class="product-card">
+    <h3>产品 C</h3>
+    <p>产品简介与参数说明...</p>
+  </div>
+</div>
+<footer>
+  <p>© 2026 我的企业官网</p>
+</footer>
+</body>
+</html>
