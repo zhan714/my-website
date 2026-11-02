@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>产品中心 - 我的企业官网</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -10,11 +11,17 @@ header { background: #1a3a5c; color: white; padding: 1rem 0; }
 .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; display: flex; justify-content: space-between; align-items: center; }
 header h1 { font-size: 1.4rem; }
 nav a { color: white; text-decoration: none; margin-left: 1.5rem; font-size: 0.9rem; }
-.page-title { text-align: center; padding: 3rem 1rem; background: #f8f9fa; }
-.products { max-width: 1100px; margin: 3rem auto; padding: 0 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-.product-card { border: 1px solid #eee; padding: 1.5rem; border-radius: 4px; text-align: center; }
-.product-card h3 { color: #1a3a5c; margin-bottom: 1rem; }
-footer { background: #0d2438; color: #aaa; padding: 2rem 1rem; text-align: center; margin-top: 3rem; }
+.page-title { background: #f8f9fa; padding: 2.5rem 1rem; text-align: center; }
+.page-title h2 { font-size: 1.8rem; color: #1a3a5c; }
+.product-grid { max-width: 1100px; margin: 2.5rem auto; padding: 0 1rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.8rem; }
+.product-card { border: 1px solid #eee; border-radius: 8px; overflow: hidden; transition: box-shadow 0.2s; }
+.product-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+.product-card img { width: 100%; height: 220px; object-fit: cover; display: block; }
+.product-card .info { padding: 1.2rem; }
+.product-card .info h3 { color: #1a3a5c; margin-bottom: 0.5rem; font-size: 1.15rem; }
+.product-card .info p { color: #666; font-size: 0.88rem; margin-bottom: 0.8rem; }
+.product-card .info .price { color: #e63900; font-weight: bold; font-size: 1rem; }
+footer { background: #0d2438; color: #aaa; padding: 2rem 1rem; text-align: center; font-size: 0.85rem; margin-top: 3rem; }
 </style>
 </head>
 <body>
@@ -31,24 +38,67 @@ footer { background: #0d2438; color: #aaa; padding: 2rem 1rem; text-align: cente
 </header>
 <section class="page-title">
   <h2>产品中心</h2>
-  <p>持续更新中，欢迎咨询</p>
+  <p style="color:#666; margin-top:0.5rem;">优质五常大米，品类齐全，欢迎咨询报价</p>
 </section>
-<div class="products">
+<div class="product-grid">
+
   <div class="product-card">
-    <h3>产品 A</h3>
-    <p>产品简介与参数说明...</p>
+    <img src="images/dami1.jpg" alt="莱美顿五常醇香米">
+    <div class="info">
+      <h3>莱美顿 五常醇香米</h3>
+      <p>净含量25kg · 五常产地 · 醇香软糯</p>
+      <p class="price">¥价格面议</p>
+    </div>
   </div>
+
   <div class="product-card">
-    <h3>产品 B</h3>
-    <p>产品简介与参数说明...</p>
+    <img src="images/dami2.jpg" alt="金欣仙桃香大米">
+    <div class="info">
+      <h3>金欣 仙桃香</h3>
+      <p>净含量25kg · 软糯清香 · 湖北仙桃出品</p>
+      <p class="price">¥价格面议</p>
+    </div>
   </div>
+
   <div class="product-card">
-    <h3>产品 C</h3>
-    <p>产品简介与参数说明...</p>
+    <img src="images/dami3.jpg" alt="芭曼颂泰吉谷香米">
+    <div class="info">
+      <h3>芭曼颂 泰吉谷香米</h3>
+      <p>净含量25kg · 中粮COFCO · 皇家粮仓</p>
+      <p class="price">¥价格面议</p>
+    </div>
   </div>
+
+  <div class="product-card">
+    <img src="images/dami4.jpg" alt="老娘舅五常大米">
+    <div class="info">
+      <h3>老娘舅 五常大米</h3>
+      <p>净含量25kg · 原粮稻花香2号 · 东北五常</p>
+      <p class="price">¥价格面议</p>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <img src="images/dami5.jpg" alt="皇家稻场五常大米">
+    <div class="info">
+      <h3>皇家稻场 五常大米</h3>
+      <p>净含量25kg · 五优稻4号 · 礼盒装</p>
+      <p class="price">¥价格面议</p>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <img src="images/dami6.jpg" alt="皇家稻场礼盒大米">
+    <div class="info">
+      <h3>皇家稻场 礼盒装</h3>
+      <p>净含量25kg · 省级重点龙头企业出品</p>
+      <p class="price">¥价格面议</p>
+    </div>
+  </div>
+
 </div>
 <footer>
-  <p>© 2026 我的企业官网</p>
+  <p>© 2026 我的企业官网 | 电话：13238041139</p>
 </footer>
 </body>
 </html>
