@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>联系我们 - 我的企业官网</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "Microsoft YaHei", sans-serif; color: #333; line-height: 1.6; }
+header { background: #1a3a5c; color: white; padding: 1rem 0; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; display: flex; justify-content: space-between; align-items: center; }
+header h1 { font-size: 1.4rem; }
+nav a { color: white; text-decoration: none; margin-left: 1.5rem; font-size: 0.9rem; }
+.page-title { background: #f8f9fa; padding: 2rem 1rem; text-align: center; }
+.contact-wrap { max-width: 800px; margin: 3rem auto; padding: 0 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.contact-info h3 { color: #1a3a5c; margin-bottom: 1.5rem; }
+.contact-item { margin-bottom: 1.5rem; }
+.label { font-weight: bold; color: #1a3a5c; }
+.form-group { margin-bottom: 1rem; }
+.form-group input, .form-group textarea { width: 100%; padding: 0.7rem; border: 1px solid #ddd; border-radius: 4px; }
+.submit-btn { background: #ff6b35; color: white; border: none; padding: 0.8rem 2rem; border-radius: 4px; cursor: pointer; }
+footer { background: #0d2438; color: #aaa; padding: 2rem 1rem; text-align: center; margin-top: 3rem; }
+@media (max-width: 768px) { .contact-wrap { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1>我的企业官网</h1>
+    <nav>
+      <a href="index.html">首页</a>
+      <a href="products.html">产品中心</a>
+      <a href="about.html">关于我们</a>
+      <a href="contact.html">联系我们</a>
+    </nav>
+  </div>
+</header>
+<section class="page-title">
+  <h2>联系我们</h2>
+  <p>获取产品报价，我们尽快回复</p>
+</section>
+<div class="contact-wrap">
+  <div class="contact-info">
+    <h3>联系方式</h3>
+    <div class="contact-item">
+      <div class="label">电话/微信</div>
+      <div>请填写你的电话/微信</div>
+    </div>
+    <div class="contact-item">
+      <div class="label">邮箱</div>
+      <div>your@email.com</div>
+    </div>
+    <div class="contact-item">
+      <div class="label">地址</div>
+      <div>你的公司地址</div>
+    </div>
+  </div>
+  <div class="contact-form">
+    <h3>在线留言</h3>
+    <div class="form-group"><input type="text" placeholder="您的姓名"></div>
+    <div class="form-group"><input type="text" placeholder="联系电话"></div>
+    <div class="form-group"><textarea placeholder="留言内容"></textarea></div>
+    <button class="submit-btn">提交留言</button>
+  </div>
+</div>
+<footer>
+  <p>© 2026 我的企业官网</p>
+</footer>
+</body>
+</html>
