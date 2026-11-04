@@ -3,29 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>产品中心 - 红军编织袋专卖店</title>
+<title>产品中心_红军编织袋专卖店</title>
 <style>
-  body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; margin: 0; background: #f5f5f0; color: #333; }
-  header { background: #1a3a5c; color: #fff; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-  header h1 { margin: 0; font-size: 1.3em; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; background: #f7f9fc; color: #333; }
+  header { background: #1a3a5c; color: #fff; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+  header h1 { font-size: 1.3em; }
   nav a { color: #fff; margin-left: 15px; text-decoration: none; font-size: 0.9em; }
   nav a:hover { text-decoration: underline; }
-  .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
-  h2 { text-align: center; color: #1a3a5c; margin-bottom: 30px; font-size: 1.6em; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
-  .card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 12px rgba(0,0,0,0.1); transition: transform 0.2s; display: flex; flex-direction: column; }
-  .card:hover { transform: translateY(-5px); }
-  .card .pic { width: 100%; height: 220px; background: #eef2f6; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-  .card .pic img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .card .info { padding: 18px; flex: 1; display: flex; flex-direction: column; }
-  .card h3 { margin: 0 0 10px; color: #1a3a5c; font-size: 1.15em; }
-  .card .desc { color: #666; font-size: 0.9em; margin: 0 0 12px; line-height: 1.5; flex: 1; }
-  .card .price { color: #c00; font-weight: bold; margin: 0 0 14px; }
-  .card .btn { align-self: flex-start; background: #1a3a5c; color: #fff; padding: 8px 18px; border-radius: 5px; text-decoration: none; font-size: 0.85em; }
-  .card .btn:hover { background: #2a4a6c; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 30px 20px; }
+  h2 { text-align: center; color: #1a3a5c; margin-bottom: 30px; font-size: 1.8em; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+  .card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); display: flex; flex-direction: column; }
+  /* 轮播图 */
+  .carousel { position: relative; width: 100%; height: 220px; overflow: hidden; background: #fff; }
+  .carousel-inner { display: flex; width: 100%; height: 100%; transition: transform 0.5s ease-in-out; }
+  .carousel-inner img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; }
+  .carousel-dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; }
+  .dot { width: 8px; height: 8px; background: rgba(255,255,255,0.6); border-radius: 50%; cursor: pointer; transition: background 0.3s; }
+  .dot.active { background: #fff; }
+  .no-img { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #9aa7b5; font-size: 14px; }
+  .info { padding: 18px; display: flex; flex-direction: column; flex: 1; }
+  .info h3 { color: #1a3a5c; margin: 0 0 10px; font-size: 1.2em; }
+  .info .desc { color: #666; font-size: 0.9em; margin: 0 0 12px; line-height: 1.5; flex: 1; }
+  .info .price { color: #c00; font-weight: bold; margin: 0 0 14px; }
+  .info .btn { align-self: flex-start; background: #1a3a5c; color: #fff; padding: 8px 18px; border-radius: 5px; text-decoration: none; font-size: 0.85em; }
+  .info .btn:hover { background: #2a4a6c; }
   footer { background: #1a3a5c; color: #fff; text-align: center; padding: 20px; margin-top: 50px; font-size: 0.85em; line-height: 1.8; }
   footer p { margin: 4px 0; }
-  @media (max-width: 600px) { header h1 { font-size: 1.1em; } nav a { margin-left: 10px; font-size: 0.8em; } .card .pic { height: 180px; } }
+  @media (max-width: 600px) { header h1 { font-size: 1.1em; } nav a { margin-left: 10px; font-size: 0.8em; } .carousel { height: 180px; } }
 </style>
 </head>
 <body>
@@ -57,21 +63,68 @@ fetch('products.json')
   .then(function (r) { return r.json(); })
   .then(function (products) {
     var box = document.getElementById('product-list');
-    box.innerHTML = products.map(function (p) {
-      var imgHtml = p.img
-        ? '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy">'
-        : '<span style="color:#9aa7b5;font-size:14px;">暂无图片</span>';
-      return ''
-        + '<div class="card">'
-        +   '<div class="pic">' + imgHtml + '</div>'
-        +   '<div class="info">'
-        +     '<h3>' + p.name + '</h3>'
-        +     '<p class="desc">' + p.desc + '</p>'
-        +     '<p class="price">' + p.price + '</p>'
-        +     '<a class="btn" href="contact.html">立即咨询</a>'
-        +   '</div>'
+    box.innerHTML = '';
+
+    products.forEach(function (p) {
+      var card = document.createElement('div');
+      card.className = 'card';
+
+      var imgHtml = '';
+      if (p.imgs && p.imgs.length > 0) {
+        var imgs = p.imgs.map(function (src) {
+          return '<img src="' + src + '" alt="' + p.name + '" loading="lazy">';
+        }).join('');
+        var dots = p.imgs.map(function (_, i) {
+          return '<div class="dot' + (i === 0 ? ' active' : '') + '"></div>';
+        }).join('');
+        imgHtml = ''
+          + '<div class="carousel">'
+          +   '<div class="carousel-inner">' + imgs + '</div>'
+          +   (p.imgs.length > 1 ? '<div class="carousel-dots">' + dots + '</div>' : '')
+          + '</div>';
+      } else {
+        imgHtml = '<div class="carousel"><div class="no-img">暂无图片</div></div>';
+      }
+
+      card.innerHTML = ''
+        + imgHtml
+        + '<div class="info">'
+        +   '<h3>' + p.name + '</h3>'
+        +   '<p class="desc">' + p.desc + '</p>'
+        +   '<p class="price">' + p.price + '</p>'
+        +   '<a class="btn" href="contact.html">立即咨询</a>'
         + '</div>';
-    }).join('');
+
+      box.appendChild(card);
+    });
+
+    // 每个轮播独立初始化
+    document.querySelectorAll('.carousel').forEach(function (car) {
+      var inner = car.querySelector('.carousel-inner');
+      var dots = car.querySelectorAll('.dot');
+      var total = dots.length;
+      if (total <= 1) return;
+
+      var index = 0;
+      var timer = null;
+
+      function go(i) {
+        index = (i + total) % total;
+        inner.style.transform = 'translateX(' + (-index * 100) + '%)';
+        dots.forEach(function (d, j) { d.classList.toggle('active', j === index); });
+      }
+
+      function play() { timer = setInterval(function () { go(index + 1); }, 4000); }
+      function pause() { clearInterval(timer); }
+
+      dots.forEach(function (d, j) {
+        d.addEventListener('click', function () { go(j); pause(); play(); });
+      });
+
+      car.addEventListener('mouseenter', pause);
+      car.addEventListener('mouseleave', play);
+      play();
+    });
   })
   .catch(function () {
     document.getElementById('product-list').innerHTML =
