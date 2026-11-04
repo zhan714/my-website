@@ -2,107 +2,62 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>产品详情_红军编织袋专卖店</title>
+<title>产品详情_红军编织袋</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; background: #f7f9fc; color: #333; }
-  header { background: #1a3a5c; color: #fff; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-  header h1 { font-size: 1.3em; }
-  nav a { color: #fff; margin-left: 15px; text-decoration: none; font-size: 0.9em; }
-  nav a:hover { text-decoration: underline; }
-  .container { max-width: 1100px; margin: 0 auto; padding: 30px 20px; }
-  .back { display: inline-block; color: #1a3a5c; text-decoration: none; margin-bottom: 20px; font-size: 0.9em; }
-  .back:hover { text-decoration: underline; }
-  .detail { background: #fff; border-radius: 8px; padding: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-  .detail h2 { color: #1a3a5c; margin-bottom: 20px; font-size: 1.6em; }
-  .gallery { display: flex; gap: 16px; flex-wrap: wrap; }
-  .main-img { flex: 1; min-width: 300px; }
-  .main-img img { width: 100%; height: 400px; object-fit: contain; background: #f0f0f0; border-radius: 6px; }
-  .thumbs { width: 90px; display: flex; flex-direction: column; gap: 8px; max-height: 400px; overflow-y: auto; }
-  .thumbs img { width: 100%; height: 70px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 2px solid transparent; opacity: 0.7; transition: 0.2s; }
-  .thumbs img.active, .thumbs img:hover { border-color: #1a3a5c; opacity: 1; }
-  .info { margin-top: 24px; }
-  .info .price { color: #c00; font-weight: bold; font-size: 1.2em; margin: 10px 0 16px; }
-  .info .desc { color: #555; line-height: 1.8; }
-  .btn { display: inline-block; background: #1a3a5c; color: #fff; padding: 10px 24px; border-radius: 5px; text-decoration: none; margin-top: 20px; }
-  .btn:hover { background: #2a4a6c; }
-  footer { background: #1a3a5c; color: #fff; text-align: center; padding: 20px; margin-top: 50px; font-size: 0.85em; line-height: 1.8; }
-  @media (max-width: 600px) { .main-img img { height: 280px; } .thumbs { width: 70px; } .thumbs img { height: 55px; } }
+  :root{--green:#2e5e3e;--bg:#fdfaf6;--orange:#d98a4a;}
+  body{margin:0;font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:#333;}
+  header{background:#fff;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+  .logo{font-size:22px;font-weight:bold;color:var(--green);}
+  nav a{margin-left:25px;text-decoration:none;color:#555;}
+  .container{max-width:1100px;margin:40px auto;padding:0 5%;}
+  .back{display:inline-block;margin-bottom:20px;color:var(--green);text-decoration:none;}
+  .detail{display:flex;gap:40px;background:#fff;padding:40px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.05);}
+  .gallery{flex:1;}
+  .main-img{height:400px;background:#f0f0f0;border-radius:15px;display:flex;align-items:center;justify-content:center;margin-bottom:15px;overflow:hidden;}
+  .main-img img{max-width:100%;max-height:100%;object-fit:contain;}
+  .thumbs{display:flex;gap:10px;overflow-x:auto;}
+  .thumbs img{width:70px;height:70px;object-fit:cover;border-radius:8px;cursor:pointer;border:2px solid transparent;opacity:.7;}
+  .thumbs img.active,.thumbs img:hover{border-color:var(--orange);opacity:1;}
+  .info{flex:1;}
+  .info h2{color:var(--green);font-size:28px;margin-bottom:15px;}
+  .price{color:var(--orange);font-size:24px;font-weight:bold;margin-bottom:20px;}
+  .desc{line-height:1.8;color:#555;margin-bottom:30px;background:var(--bg);padding:20px;border-radius:10px;}
+  .btn{display:inline-block;background:var(--green);color:#fff;padding:12px 35px;border-radius:30px;text-decoration:none;font-size:16px;}
+  .btn:hover{background:var(--orange);}
+  footer{background:var(--green);color:#fff;text-align:center;padding:30px;margin-top:50px;}
+  @media(max-width:768px){.detail{flex-direction:column;padding:20px;}.main-img{height:300px;}}
 </style>
 </head>
 <body>
-
 <header>
-  <h1>红军编织袋专卖店</h1>
-  <nav>
-    <a href="index.html">首页</a>
-    <a href="about.html">关于我们</a>
-    <a href="products.html">产品中心</a>
-    <a href="contact.html">联系我们</a>
-  </nav>
+  <div class="logo">红军编织袋专卖店</div>
+  <nav><a href="index.html">首页</a><a href="about.html">关于我们</a><a href="products.html">产品中心</a><a href="contact.html">联系我们</a></nav>
 </header>
-
 <div class="container">
-  <a class="back" href="javascript:history.back()">← 返回产品中心</a>
-  <div class="detail" id="detail-box">
-    <p style="color:#999;">加载中...</p>
-  </div>
+  <a class="back" href="products.html">← 返回产品中心</a>
+  <div class="detail" id="detail-box"><p>加载中...</p></div>
 </div>
-
-<footer>
-  <p>© 2026 红军编织袋专卖店 | 电话：13734322272 | 微信：zhangyanan911515</p>
-  <p>地址：中国山东省日照市莒县刘官庄镇马驹岭村</p>
-</footer>
-
+<footer><p>© 2026 红军编织袋专卖店 | 13734322272 | 山东日照</p></footer>
 <script>
-var params = new URLSearchParams(window.location.search);
-var id = params.get('id');
-
-fetch('products.json')
-  .then(function (r) { return r.json(); })
-  .then(function (products) {
-    var p = products.find(function (x) { return x.folder.split('/')[1] === id; });
-    var box = document.getElementById('detail-box');
-
-    if (!p) {
-      box.innerHTML = '<p style="color:#c00;">未找到该产品</p>';
-      return;
-    }
-
-    document.title = p.name + '_红军编织袋专卖店';
-
-    var imgs = (p.imgs && p.imgs.length > 0) ? p.imgs : [];
-    var main = imgs.length > 0
-      ? '<img id="big-img" src="' + imgs[0] + '" alt="' + p.name + '">'
-      : '<div style="height:400px;display:flex;align-items:center;justify-content:center;color:#9aa7b5;background:#f0f0f0;border-radius:6px;">暂无图片</div>';
-
-    var thumbs = imgs.map(function (src, i) {
-      return '<img src="' + src + '" class="' + (i === 0 ? 'active' : '') + '" onclick="switchImg(this,\'' + src + '\')">';
-    }).join('');
-
-    box.innerHTML = ''
-      + '<h2>' + p.name + '</h2>'
-      + '<div class="gallery">'
-      +   '<div class="main-img">' + main + '</div>'
-      +   (imgs.length > 1 ? '<div class="thumbs">' + thumbs + '</div>' : '')
-      + '</div>'
-      + '<div class="info">'
-      +   '<div class="price">' + p.price + '</div>'
-      +   '<div class="desc">' + (p.detail || p.desc) + '</div>'
-      +   '<a class="btn" href="contact.html">立即咨询</a>'
-      + '</div>';
-  })
-  .catch(function () {
-    document.getElementById('detail-box').innerHTML = '<p style="color:#c00;">加载失败，请检查 products.json</p>';
-  });
-
-function switchImg(el, src) {
-  document.getElementById('big-img').src = src;
-  el.parentNode.querySelectorAll('img').forEach(function (x) { x.classList.remove('active'); });
-  el.classList.add('active');
-}
+var id=new URLSearchParams(location.search).get('id');
+fetch('products.json').then(r=>r.json()).then(products=>{
+  var p=products.find(x=>x.folder.split('/')[1]===id),box=document.getElementById('detail-box');
+  if(!p){box.innerHTML='<p>未找到产品</p>';return;}
+  document.title=p.name+'_红军编织袋';
+  var imgs=p.imgs||[p.folder+'/1.png'];
+  box.innerHTML=`<h2 style="display:none">${p.name}</h2>
+    <div class="gallery">
+      <div class="main-img"><img id="big-img" src="${imgs[0]}"></div>
+      <div class="thumbs">${imgs.map((s,i)=>`<img src="${s}" class="${i===0?'active':''}" onclick="switchImg(this,'${s}')">`).join('')}</div>
+    </div>
+    <div class="info">
+      <h2>${p.name}</h2>
+      <div class="price">${p.price}</div>
+      <div class="desc">${p.detail||p.desc}</div>
+      <a class="btn" href="contact.html">立即咨询定制</a>
+    </div>`;
+});
+function switchImg(el,src){document.getElementById('big-img').src=src;el.parentNode.querySelectorAll('img').forEach(x=>x.classList.remove('active'));el.classList.add('active');}
 </script>
-
 </body>
 </html>
