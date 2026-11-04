@@ -4,43 +4,69 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>红军编织袋专卖店_山东日照源头厂家</title>
-<link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
 <style>
-  :root{--green:#2e5c3e;--light-green:#e8f0ea;--bg:#fdfaf5;--orange:#d68b4a;}
   *{margin:0;padding:0;box-sizing:border-box;}
-  body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:#333;}
-  header{background:#fff;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,0.05);position:sticky;top:0;z-index:100;}
-  .logo{font-family:"Noto Serif SC","ZCOOL KuaiLe",serif;font-size:30px;font-weight:900;color:var(--green);letter-spacing:3px;text-shadow:1px 1px 0 var(--orange);}
-  nav a{margin-left:25px;text-decoration:none;color:#555;font-size:16px;transition:.3s;}
-  nav a:hover{color:var(--orange);}
-  .hero{display:flex;align-items:center;padding:60px 5%;background:linear-gradient(135deg,#fdfaf5 50%,var(--light-green) 50%);flex-wrap:wrap;}
-  .hero-text{flex:1;min-width:300px;}
-  .hero-text h1{font-size:40px;color:var(--green);margin-bottom:15px;line-height:1.3;}
-  .hero-text p{font-size:18px;color:#666;margin-bottom:30px;}
-  .btn{display:inline-block;background:var(--green);color:#fff;padding:12px 30px;border-radius:30px;text-decoration:none;font-size:16px;transition:.3s;}
-  .btn:hover{background:var(--orange);transform:translateY(-2px);}
-  .hero-img{flex:1;min-width:300px;text-align:right;}
-  .hero-img img{max-width:100%;height:350px;object-fit:cover;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.1%);}
-  .features{display:flex;justify-content:center;gap:20px;padding:50px 5%;background:#fff;flex-wrap:wrap;}
-  .feature-card{flex:1;max-width:240px;text-align:center;padding:25px 15px;border-radius:15px;background:var(--bg);box-shadow:0 5px 15px rgba(0,0,0,0.03);}
-  .feature-card span{font-size:36px;display:block;margin-bottom:10px;}
-  .feature-card h3{margin:0 0 8px;color:var(--green);font-size:18px;}
-  .feature-card p{margin:0;color:#888;font-size:14px;}
-  .hot-products{padding:50px 5%;text-align:center;}
-  .hot-products h2{color:var(--green);font-size:30px;margin-bottom:40px;}
-  .hot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;max-width:1000px;margin:0 auto;}
-  .card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.05);transition:.3s;text-decoration:none;color:inherit;}
-  .card:hover{transform:translateY(-5px);box-shadow:0 12px 25px rgba(0,0,0,0.1);}
-  .card img{width:100%;height:200px;object-fit:cover;}
-  .card-info{padding:15px;}
-  .card-info h3{margin:0 0 8px;color:var(--green);}
-  .card-info p{margin:0;color:#777;font-size:14px;}
-  footer{background:var(--green);color:#fff;text-align:center;padding:30px 5%;line-height:1.8;font-size:14px;}
-  footer p{margin:4px 0;}
-  @media(max-width:768px){header{flex-direction:column;gap:15px;}nav a{margin:0 10px;}.hot-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}}
+  body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#FAF7F0;color:#333;}
+
+  /* 导航：透明覆盖在大图上，高级感 */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 6%;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(180deg,rgba(20,40,28,0.65),transparent);}
+  .logo{font-family:"Noto Serif SC","STKaiti",serif;font-size:26px;font-weight:900;color:#fff;letter-spacing:3px;text-shadow:0 2px 8px rgba(0,0,0,0.4);}
+  nav a{margin-left:30px;text-decoration:none;color:rgba(255,255,255,0.9);font-size:16px;transition:.3s;text-shadow:0 1px 4px rgba(0,0,0,0.3);}
+  nav a:hover{color:#F4A261;}
+
+  /* 首屏：大幅实景图铺满 */
+  .hero{position:relative;height:100vh;min-height:560px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity 1s;}
+  .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(20,45,30,0.55),rgba(20,45,30,0.25));}
+  .hero-content{position:relative;z-index:2;text-align:center;color:#fff;padding:0 20px;}
+  .hero-content .tag{display:inline-block;font-size:14px;letter-spacing:6px;color:#F4A261;margin-bottom:20px;text-transform:uppercase;}
+  .hero-content h1{font-size:52px;font-weight:900;letter-spacing:4px;margin-bottom:18px;text-shadow:0 4px 20px rgba(0,0,0,0.5);line-height:1.3;}
+  .hero-content .sub{font-size:19px;color:rgba(255,255,255,0.92);margin-bottom:36px;letter-spacing:2px;}
+  .hero-content .btn{display:inline-block;background:#F4A261;color:#fff;padding:14px 42px;border-radius:40px;text-decoration:none;font-size:17px;font-weight:bold;transition:.3s;box-shadow:0 8px 20px rgba(244,162,97,0.4);}
+  .hero-content .btn:hover{background:#E08A4A;transform:translateY(-3px);}
+  .scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,0.8);font-size:13px;letter-spacing:3px;animation:bob 2s infinite;}
+  @keyframes bob{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
+
+  /* 理念区：大留白、克制 */
+  .concept{padding:100px 6%;text-align:center;background:#FAF7F0;}
+  .concept h2{font-size:30px;color:#2E5C3E;margin-bottom:20px;letter-spacing:2px;}
+  .concept p{font-size:17px;color:#6b6b6b;max-width:700px;margin:0 auto;line-height:2;}
+
+  /* 优势：卡片悬浮，实景氛围 */
+  .features{padding:40px 6% 100px;background:#FAF7F0;}
+  .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;max-width:1200px;margin:0 auto;}
+  .f-card{background:#fff;border-radius:20px;padding:40px 28px;text-align:center;box-shadow:0 6px 24px rgba(46,92,62,0.06);transition:.3s;}
+  .f-card:hover{transform:translateY(-8px);box-shadow:0 14px 34px rgba(46,92,62,0.12);}
+  .f-card .ic{font-size:44px;margin-bottom:16px;}
+  .f-card h3{color:#2E5C3E;font-size:20px;margin-bottom:10px;}
+  .f-card p{color:#888;font-size:14px;line-height:1.7;}
+
+  /* 热销：一行3张，大图干净 */
+  .hot-products{padding:80px 6%;background:#fff;}
+  .hot-products h2{text-align:center;color:#2E5C3E;font-size:30px;margin-bottom:50px;letter-spacing:2px;}
+  .hot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1100px;margin:0 auto;}
+  .card{background:#FAF7F0;border-radius:18px;overflow:hidden;text-decoration:none;color:inherit;transition:.35s;box-shadow:0 6px 20px rgba(0,0,0,0.05);}
+  .card:hover{transform:translateY(-8px);box-shadow:0 16px 36px rgba(0,0,0,0.12);}
+  .card .img-box{height:240px;overflow:hidden;background:#eee;}
+  .card .img-box img{width:100%;height:100%;object-fit:cover;transition:.6s;}
+  .card:hover .img-box img{transform:scale(1.06);}
+  .card .info{padding:22px;text-align:center;}
+  .card .info h3{color:#2E5C3E;font-size:19px;margin-bottom:6px;}
+  .card .info p{color:#999;font-size:13px;}
+
+  footer{background:#2E5C3E;color:#fff;text-align:center;padding:40px 6%;line-height:2;font-size:14px;}
+  footer p{margin:4px 0;opacity:0.9;}
+  @media(max-width:768px){
+    header{flex-direction:column;gap:12px;padding:16px 20px;}
+    .hero-content h1{font-size:34px;}
+    .hero-content .sub{font-size:16px;}
+    .hot-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+    .concept{padding:60px 20px;}
+  }
 </style>
 </head>
 <body>
+
 <header>
   <div class="logo">红军编织袋专卖店</div>
   <nav>
@@ -51,28 +77,35 @@
   </nav>
 </header>
 
-<div class="hero">
-  <div class="hero-text">
-    <h1>专业编织袋<br>定制生产</h1>
-    <p>可定制印刷 · 按需设计 · 起订灵活 · 交期稳定<br>客户需要什么，我们就可以做什么</p>
+<section class="hero">
+  <div class="hero-bg" id="hero-bg" style="background-image:url('images/putong/1.png')"></div>
+  <div class="hero-content">
+    <div class="tag">山东日照 · 源头工厂</div>
+    <h1>专业编织袋定制生产</h1>
+    <p class="sub">可定制印刷 · 按需设计 · 起订灵活 · 交期稳定</p>
     <a href="products.html" class="btn">查看全部产品</a>
   </div>
-  <div class="hero-img">
-    <img id="hero-img" src="images/putong/1.png" alt="编织袋展示" onerror="this.src='https://via.placeholder.com/400x350?text=红军编织袋'">
+  <div class="scroll-hint">向下滚动 ↓</div>
+</section>
+
+<section class="concept">
+  <h2>客户需要什么，我们就做什么</h2>
+  <p>位于山东省日照市莒县刘官庄镇马驹岭村的源头工厂，主营普通、彩印、复合编织袋及粮食、饲料包装袋，支持按需定制印刷。厂家直销，价格实在，交期稳定。</p>
+</section>
+
+<section class="features">
+  <div class="features-grid">
+    <div class="f-card"><div class="ic">🎨</div><h3>可定制印刷</h3><p>图案文字随心印，高清彩印不掉色</p></div>
+    <div class="f-card"><div class="ic">📐</div><h3>按需设计</h3><p>规格尺寸、克重颜色均可定制</p></div>
+    <div class="f-card"><div class="ic">🏭</div><h3>厂家直销</h3><p>无中间差价，价格更实在</p></div>
+    <div class="f-card"><div class="ic">🚚</div><h3>交期稳定</h3><p>准时交付，长期合作有保障</p></div>
   </div>
-</div>
+</section>
 
-<div class="features">
-  <div class="feature-card"><span>🎨</span><h3>可定制印刷</h3><p>图案文字随心印</p></div>
-  <div class="feature-card"><span>📐</span><h3>按需设计</h3><p>规格尺寸可定制</p></div>
-  <div class="feature-card"><span>🏭</span><h3>厂家直销</h3><p>无中间差价</p></div>
-  <div class="feature-card"><span>🚚</span><h3>交期稳定</h3><p>准时交付</p></div>
-</div>
-
-<div class="hot-products">
+<section class="hot-products">
   <h2>热销产品</h2>
   <div class="hot-grid" id="hot-grid"></div>
-</div>
+</section>
 
 <footer>
   <p>© 2026 红军编织袋专卖店 | 电话：13734322272 | 微信：zhangyanan911515</p>
@@ -80,17 +113,30 @@
 </footer>
 
 <script>
+// 首屏大图自动切换（读取 products.json 的图片）
 fetch('products.json').then(r=>r.json()).then(data=>{
-  let hi=0, himgs=(data[0].imgs&&data[0].imgs[0])?[data[0].imgs[0]]:[data[0].folder+'/1.png'];
-  setInterval(()=>{hi=(hi+1)%himgs.length;document.getElementById('hero-img').src=himgs[hi]},3000);
+  let imgs=[];
+  data.forEach(p=>{if(p.imgs)p.imgs.forEach(i=>imgs.push(i));});
+  imgs=imgs.filter(i=>i);
+  if(imgs.length===0)imgs=['images/putong/1.png'];
+  let hi=0;
+  setInterval(()=>{
+    hi=(hi+1)%imgs.length;
+    document.getElementById('hero-bg').style.opacity=0;
+    setTimeout(()=>{
+      document.getElementById('hero-bg').style.backgroundImage=`url('${imgs[hi]}')`;
+      document.getElementById('hero-bg').style.opacity=1;
+    },500);
+  },4000);
+  // 热销一行3张
   let grid=document.getElementById('hot-grid');
   data.slice(0,3).forEach(p=>{
     let img=(p.imgs&&p.imgs[0])||(p.folder+'/1.png');
     grid.innerHTML+=`<a href="detail.html?id=${p.folder.split('/')[1]}" class="card">
-      <img src="${img}" onerror="this.src='https://via.placeholder.com/300x200?text=产品图'">
-      <div class="card-info"><h3>${p.name}</h3><p>${p.desc}</p></div></a>`;
+      <div class="img-box"><img src="${img}" onerror="this.src='https://via.placeholder.com/400x300?text=产品图'"></div>
+      <div class="info"><h3>${p.name}</h3><p>${p.desc}</p></div></a>`;
   });
-}).catch(()=>document.getElementById('hot-grid').innerHTML='<p style="color:red;">热销产品加载失败</p>');
+}).catch(()=>document.getElementById('hot-grid').innerHTML='<p style="text-align:center;color:#999;">产品加载中…</p>');
 </script>
 </body>
 </html>
