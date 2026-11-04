@@ -3,26 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>产品中心_红军编织袋专卖店</title>
+<title>产品中心 - 红军编织袋专卖店</title>
 <style>
-header{background:#1a3a5c;color:#fff;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
-header h1{margin:0;font-size:1.3em}
-nav a{color:#fff;margin-left:15px;text-decoration:none;font-size:0.9em}
-nav a:hover{text-decoration:underline}
-.container{max-width:1100px;margin:30px auto;padding:0 20px}
-h2{text-align:center;color:#1a3a5c;margin-bottom:30px;font-size:1.6em}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:25px}
-.card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 3px 12px rgba(0,0,0,0.1);transition:transform 0.2s}
-.card:hover{transform:translateY(-5px)}
-.card img{width:100%;height:200px;object-fit:cover;display:block}
-.card .info{padding:18px}
-.card h3{margin:0 0 10px;color:#1a3a5c;font-size:1.1em}
-.card .desc{color:#666;font-size:0.9em;margin-bottom:10px;line-height:1.5}
-.card .price{color:#c00;font-weight:bold;margin-bottom:12px}
-.card .btn{display:inline-block;background:#1a3a5c;color:#fff;padding:8px 18px;border-radius:5px;text-decoration:none;font-size:0.85em}
-.card .btn:hover{background:#2a4a6c}
-footer{background:#1a3a5c;color:#fff;text-align:center;padding:20px;margin-top:50px;font-size:0.85em}
-@media(max-width:600px){header h1{font-size:1.1em}nav a{margin-left:10px;font-size:0.8em}}
+  body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; margin: 0; background: #f5f5f0; color: #333; }
+  header { background: #1a3a5c; color: #fff; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+  header h1 { margin: 0; font-size: 1.3em; }
+  nav a { color: #fff; margin-left: 15px; text-decoration: none; font-size: 0.9em; }
+  nav a:hover { text-decoration: underline; }
+  .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
+  h2 { text-align: center; color: #1a3a5c; margin-bottom: 30px; font-size: 1.6em; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+  .card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 12px rgba(0,0,0,0.1); transition: transform 0.2s; display: flex; flex-direction: column; }
+  .card:hover { transform: translateY(-5px); }
+  .card .pic { width: 100%; height: 220px; background: #eef2f6; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .card .pic img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .card .info { padding: 18px; flex: 1; display: flex; flex-direction: column; }
+  .card h3 { margin: 0 0 10px; color: #1a3a5c; font-size: 1.15em; }
+  .card .desc { color: #666; font-size: 0.9em; margin: 0 0 12px; line-height: 1.5; flex: 1; }
+  .card .price { color: #c00; font-weight: bold; margin: 0 0 14px; }
+  .card .btn { align-self: flex-start; background: #1a3a5c; color: #fff; padding: 8px 18px; border-radius: 5px; text-decoration: none; font-size: 0.85em; }
+  .card .btn:hover { background: #2a4a6c; }
+  footer { background: #1a3a5c; color: #fff; text-align: center; padding: 20px; margin-top: 50px; font-size: 0.85em; line-height: 1.8; }
+  footer p { margin: 4px 0; }
+  @media (max-width: 600px) { header h1 { font-size: 1.1em; } nav a { margin-left: 10px; font-size: 0.8em; } .card .pic { height: 180px; } }
 </style>
 </head>
 <body>
@@ -40,34 +43,39 @@ footer{background:#1a3a5c;color:#fff;text-align:center;padding:20px;margin-top:5
 <div class="container">
   <h2>产品中心</h2>
   <div id="product-list" class="grid">
-    <p style="text-align:center;grid-column:1/-1;color:#999">加载中...</p>
+    <p style="text-align:center;grid-column:1/-1;color:#999;">加载中...</p>
   </div>
 </div>
 
 <footer>
-  <p>© 2024 红军编织袋专卖店 | 电话：13734322272 | 微信：zhangyanan911515</p>
+  <p>© 2026 红军编织袋专卖店 | 电话：13734322272 | 微信：zhangyanan911515</p>
   <p>地址：中国山东省日照市莒县刘官庄镇马驹岭村</p>
 </footer>
 
 <script>
 fetch('products.json')
-  .then(r => r.json())
-  .then(list => {
-    const box = document.getElementById('product-list');
-    box.innerHTML = list.map(p => `
-      <div class="card">
-        <img src="${p.img}" alt="${p.name}" loading="lazy">
-        <div class="info">
-          <h3>${p.name}</h3>
-          <p class="desc">${p.desc}</p>
-          <p class="price">${p.price}</p>
-          <a class="btn" href="contact.html">立即咨询</a>
-        </div>
-      </div>
-    `).join('');
+  .then(function (r) { return r.json(); })
+  .then(function (products) {
+    var box = document.getElementById('product-list');
+    box.innerHTML = products.map(function (p) {
+      var imgHtml = p.img
+        ? '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy">'
+        : '<span style="color:#9aa7b5;font-size:14px;">暂无图片</span>';
+      return ''
+        + '<div class="card">'
+        +   '<div class="pic">' + imgHtml + '</div>'
+        +   '<div class="info">'
+        +     '<h3>' + p.name + '</h3>'
+        +     '<p class="desc">' + p.desc + '</p>'
+        +     '<p class="price">' + p.price + '</p>'
+        +     '<a class="btn" href="contact.html">立即咨询</a>'
+        +   '</div>'
+        + '</div>';
+    }).join('');
   })
-  .catch(() => {
-    document.getElementById('product-list').innerHTML = '<p style="text-align:center;grid-column:1/-1;color:#c00">加载失败，请检查 products.json 是否存在</p>';
+  .catch(function () {
+    document.getElementById('product-list').innerHTML =
+      '<p style="text-align:center;grid-column:1/-1;color:#c00;">加载失败，请检查 products.json 是否存在</p>';
   });
 </script>
 
