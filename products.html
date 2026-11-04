@@ -2,50 +2,84 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>产品中心_红军编织袋</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>产品中心_红军编织袋专卖店</title>
 <style>
-  :root{--green:#2e5e3e;--bg:#fdfaf6;--orange:#d98a4a;}
-  body{margin:0;font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:#333;}
-  header{background:#fff;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,0.05);position:sticky;top:0;}
+  :root{--green:#2e5c3e;--orange:#d68b4a;--bg:#fdfaf5;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"Microsoft YaHei",sans-serif;background:var(--bg);color:#333;}
+  header{background:#fff;padding:20px 5%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,0.05);position:sticky;top:0;z-index:100;}
   .logo{font-size:22px;font-weight:bold;color:var(--green);}
-  nav a{margin-left:25px;text-decoration:none;color:#555;}
-  .container{padding:50px 5%;max-width:1200px;margin:0 auto;}
-  h1{text-align:center;color:var(--green);font-size:32px;margin-bottom:40px;}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;}
-  .card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.05);text-decoration:none;color:inherit;transition:.3s;}
-  .card:hover{transform:translateY(-5px);box-shadow:0 12px 25px rgba(0,0,0,0.1);}
-  .img-box{height:220px;overflow:hidden;position:relative;}
-  .img-box img{width:100%;height:100%;object-fit:cover;position:absolute;opacity:0;transition:opacity 1s;}
-  .img-box img.active{opacity:1;}
+  nav a{margin-left:25px;text-decoration:none;color:#555;font-size:16px;transition:.3s;}
+  nav a:hover{color:var(--orange);}
+  .container{max-width:1200px;margin:0 auto;padding:50px 20px;}
+  .page-title{text-align:center;color:var(--green);font-size:32px;margin-bottom:40px;font-weight:bold;letter-spacing:2px;}
+  
+  /* 对称网格布局 */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;}
+  
+  .card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.05);transition:.3s;cursor:pointer;border:1px solid rgba(214,139,74,0.1);}
+  .card:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(46,92,62,0.12);}
+  .img-box{height:220px;background:#f0f0f0;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
+  .img-box img{width:100%;height:100%;object-fit:cover;transition:.5s;}
+  .card:hover .img-box img{transform:scale(1.03);}
+  /* 占位图样式 */
+  .placeholder{color:#bbb;font-size:40px;display:flex;flex-direction:column;align-items:center;}
+  .placeholder span{font-size:14px;margin-top:5px;letter-spacing:2px;}
+  
   .info{padding:20px;text-align:center;}
-  .info h3{margin:0 0 10px;color:var(--green);font-size:20px;}
-  .info p{margin:0;color:#777;font-size:14px;}
+  .info h3{color:var(--green);font-size:20px;margin-bottom:8px;}
+  .info p{color:var(--orange);font-size:14px;line-height:1.5;}
+  
   footer{background:var(--green);color:#fff;text-align:center;padding:30px;margin-top:50px;}
+  footer p{margin:5px 0;font-size:14px;}
+  @media(max-width:768px){header{flex-direction:column;gap:15px;}nav a{margin:0 10px;}.grid{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}}
 </style>
 </head>
 <body>
 <header>
   <div class="logo">红军编织袋专卖店</div>
-  <nav><a href="index.html">首页</a><a href="about.html">关于我们</a><a href="products.html">产品中心</a><a href="contact.html">联系我们</a></nav>
+  <nav>
+    <a href="index.html">首页</a>
+    <a href="about.html">关于我们</a>
+    <a href="products.html">产品中心</a>
+    <a href="contact.html">联系我们</a>
+  </nav>
 </header>
+
 <div class="container">
-  <h1>产品中心</h1>
-  <div class="grid" id="grid"></div>
+  <h1 class="page-title">热销产品</h1>
+  <div class="grid" id="prod-grid"><p style="text-align:center;color:#888;">加载中...</p></div>
 </div>
-<footer><p>© 2026 红军编织袋专卖店 | 13734322272</p></footer>
+
+<footer>
+  <p>电话：13734322272　|　微信：zhangyanan911515</p>
+  <p>地址：山东省日照市莒县刘官庄镇马驹岭村</p>
+  <p>© 2026 红军编织袋专卖店 | 客户需要什么，我们就做什么</p>
+</footer>
+
 <script>
 fetch('products.json').then(r=>r.json()).then(data=>{
-  let grid=document.getElementById('grid');
+  var grid=document.getElementById('prod-grid');
+  grid.innerHTML='';
   data.forEach(p=>{
-    let id=p.folder.split('/')[1];
-    grid.innerHTML+=`<a href="detail.html?id=${id}" class="card">
-      <div class="img-box" id="box-${id}"></div>
-      <div class="info"><h3>${p.name}</h3><p>${p.desc}</p></div></a>`;
-    let box=document.getElementById(`box-${id}`),imgs=p.imgs||[p.folder+'/1.png'];
-    imgs.forEach((src,i)=>{let img=document.createElement('img');img.src=src;if(i===0)img.className='active';box.appendChild(img);});
-    if(imgs.length>1){let i=0;setInterval(()=>{let all=box.querySelectorAll('img');all[++i%imgs.length].classList.add('active');all[(i-1+imgs.length)%imgs.length].classList.remove('active');},2500);}
+    var id=p.folder.split('/')[1];
+    var imgSrc=(p.imgs&&p.imgs[0])||(p.folder+'/1.png');
+    var card=document.createElement('div');
+    card.className='card';
+    card.onclick=()=>location.href='detail.html?id='+id;
+    card.innerHTML=`
+      <div class="img-box">
+        <img src="${imgSrc}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="placeholder" style="display:none;">🛍️<span>图片加载中</span></div>
+      </div>
+      <div class="info">
+        <h3>${p.name}</h3>
+        <p>${p.desc}</p>
+      </div>`;
+    grid.appendChild(card);
   });
-});
+}).catch(()=>document.getElementById('prod-grid').innerHTML='<p style="color:red;text-align:center;">产品数据加载失败，请检查 products.json</p>');
 </script>
 </body>
 </html>
