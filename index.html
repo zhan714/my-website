@@ -8,7 +8,7 @@
   *{margin:0;padding:0;box-sizing:border-box;}
   body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#FAF7F0;color:#333;}
 
-  /* 导航：透明覆盖在大图上，高级感 */
+  /* 导航：透明覆盖在大图上 */
   header{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 6%;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(180deg,rgba(20,40,28,0.65),transparent);}
   .logo{font-family:"Noto Serif SC","STKaiti",serif;font-size:26px;font-weight:900;color:#fff;letter-spacing:3px;text-shadow:0 2px 8px rgba(0,0,0,0.4);}
   nav a{margin-left:30px;text-decoration:none;color:rgba(255,255,255,0.9);font-size:16px;transition:.3s;text-shadow:0 1px 4px rgba(0,0,0,0.3);}
@@ -16,7 +16,7 @@
 
   /* 首屏：大幅实景图铺满 */
   .hero{position:relative;height:100vh;min-height:560px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-  .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity 1s;}
+  .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity 0.5s;}
   .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(20,45,30,0.55),rgba(20,45,30,0.25));}
   .hero-content{position:relative;z-index:2;text-align:center;color:#fff;padding:0 20px;}
   .hero-content .tag{display:inline-block;font-size:14px;letter-spacing:6px;color:#F4A261;margin-bottom:20px;text-transform:uppercase;}
@@ -27,12 +27,12 @@
   .scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,0.8);font-size:13px;letter-spacing:3px;animation:bob 2s infinite;}
   @keyframes bob{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
 
-  /* 理念区：大留白、克制 */
+  /* 理念区 */
   .concept{padding:100px 6%;text-align:center;background:#FAF7F0;}
   .concept h2{font-size:30px;color:#2E5C3E;margin-bottom:20px;letter-spacing:2px;}
   .concept p{font-size:17px;color:#6b6b6b;max-width:700px;margin:0 auto;line-height:2;}
 
-  /* 优势：卡片悬浮，实景氛围 */
+  /* 优势 */
   .features{padding:40px 6% 100px;background:#FAF7F0;}
   .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;max-width:1200px;margin:0 auto;}
   .f-card{background:#fff;border-radius:20px;padding:40px 28px;text-align:center;box-shadow:0 6px 24px rgba(46,92,62,0.06);transition:.3s;}
@@ -41,7 +41,7 @@
   .f-card h3{color:#2E5C3E;font-size:20px;margin-bottom:10px;}
   .f-card p{color:#888;font-size:14px;line-height:1.7;}
 
-  /* 热销：一行3张，大图干净 */
+  /* 热销：一行3张 */
   .hot-products{padding:80px 6%;background:#fff;}
   .hot-products h2{text-align:center;color:#2E5C3E;font-size:30px;margin-bottom:50px;letter-spacing:2px;}
   .hot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1100px;margin:0 auto;}
@@ -56,6 +56,7 @@
 
   footer{background:#2E5C3E;color:#fff;text-align:center;padding:40px 6%;line-height:2;font-size:14px;}
   footer p{margin:4px 0;opacity:0.9;}
+
   @media(max-width:768px){
     header{flex-direction:column;gap:12px;padding:16px 20px;}
     .hero-content h1{font-size:34px;}
@@ -78,7 +79,7 @@
 </header>
 
 <section class="hero">
-  <div class="hero-bg" id="hero-bg" style="background-image:url('images/putong/1.png')"></div>
+  <div class="hero-bg" id="hero-bg"></div>
   <div class="hero-content">
     <div class="tag">山东日照 · 源头工厂</div>
     <h1>专业编织袋定制生产</h1>
@@ -113,30 +114,78 @@
 </footer>
 
 <script>
-// 首屏大图自动切换（读取 products.json 的图片）
-fetch('products.json').then(r=>r.json()).then(data=>{
-  let imgs=[];
-  data.forEach(p=>{if(p.imgs)p.imgs.forEach(i=>imgs.push(i));});
-  imgs=imgs.filter(i=>i);
-  if(imgs.length===0)imgs=['images/putong/1.png'];
-  let hi=0;
-  setInterval(()=>{
-    hi=(hi+1)%imgs.length;
-    document.getElementById('hero-bg').style.opacity=0;
-    setTimeout(()=>{
-      document.getElementById('hero-bg').style.backgroundImage=`url('${imgs[hi]}')`;
-      document.getElementById('hero-bg').style.opacity=1;
-    },500);
-  },4000);
-  // 热销一行3张
-  let grid=document.getElementById('hot-grid');
-  data.slice(0,3).forEach(p=>{
-    let img=(p.imgs&&p.imgs[0])||(p.folder+'/1.png');
-    grid.innerHTML+=`<a href="detail.html?id=${p.folder.split('/')[1]}" class="card">
+// ===== 首页轮播：优先读 images/index/ 文件夹 =====
+const indexImgs = ['images/index/1.png', 'images/index/2.png', 'images/index/3.png'];
+let hi = 0;
+const heroBg = document.getElementById('hero-bg');
+
+function tryLoadIndexImg() {
+  let loaded = 0;
+  let validImgs = [];
+  indexImgs.forEach((src, i) => {
+    const img = new Image();
+    img.onload = () => {
+      loaded++;
+      validImgs.push(src);
+      if (loaded === 1) startHero(validImgs);
+    };
+    img.onerror = () => {
+      // 跳过不存在的图
+    };
+  });
+  // 如果全部加载失败，回退到产品图
+  setTimeout(() => {
+    if (validImgs.length === 0) fallbackToProducts();
+  }, 1500);
+}
+
+function startHero(validImgs) {
+  let current = 0;
+  heroBg.style.backgroundImage = `url('${validImgs[0]}')`;
+  if (validImgs.length > 1) {
+    setInterval(() => {
+      current = (current + 1) % validImgs.length;
+      heroBg.style.opacity = 0;
+      setTimeout(() => {
+        heroBg.style.backgroundImage = `url('${validImgs[current]}')`;
+        heroBg.style.opacity = 1;
+      }, 500);
+    }, 4000);
+  }
+}
+
+function fallbackToProducts() {
+  fetch('products.json').then(r => r.json()).then(data => {
+    let imgs = [];
+    data.forEach(p => { if (p.imgs) p.imgs.forEach(i => imgs.push(i)); });
+    if (imgs.length === 0) imgs = ['images/putong/1.png'];
+    heroBg.style.backgroundImage = `url('${imgs[0]}')`;
+    let ci = 0;
+    setInterval(() => {
+      ci = (ci + 1) % imgs.length;
+      heroBg.style.opacity = 0;
+      setTimeout(() => {
+        heroBg.style.backgroundImage = `url('${imgs[ci]}')`;
+        heroBg.style.opacity = 1;
+      }, 500);
+    }, 4000);
+  }).catch(() => {
+    heroBg.style.backgroundImage = 'linear-gradient(135deg,#2E5C3E,#4A7A5B)';
+  });
+}
+
+tryLoadIndexImg();
+
+// ===== 热销区：取前3个产品 =====
+fetch('products.json').then(r => r.json()).then(data => {
+  let grid = document.getElementById('hot-grid');
+  data.slice(0, 3).forEach(p => {
+    let img = (p.imgs && p.imgs[0]) || (p.folder + '/1.png');
+    grid.innerHTML += `<a href="detail.html?id=${p.folder.split('/')[1]}" class="card">
       <div class="img-box"><img src="${img}" onerror="this.src='https://via.placeholder.com/400x300?text=产品图'"></div>
       <div class="info"><h3>${p.name}</h3><p>${p.desc}</p></div></a>`;
   });
-}).catch(()=>document.getElementById('hot-grid').innerHTML='<p style="text-align:center;color:#999;">产品加载中…</p>');
+}).catch(() => document.getElementById('hot-grid').innerHTML = '<p style="text-align:center;color:#999;grid-column:1/-1;">产品加载中…</p>');
 </script>
 </body>
 </html>
