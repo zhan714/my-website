@@ -3,108 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>产品中心 - 我的企业官网</title>
+  <title>产品中心 - 编织袋定制厂家</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
-      background: #f4f6f2;
-      color: #2c3e2c;
-      line-height: 1.6;
-    }
-    /* 顶部导航 */
-    header {
-      background: #ffffff;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      padding: 16px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo { font-size: 22px; font-weight: bold; color: #2f6b3d; }
-    nav a {
-      color: #444;
-      text-decoration: none;
-      margin-left: 28px;
-      font-size: 15px;
-      transition: color 0.2s;
-    }
-    nav a:hover, nav a.active { color: #2f6b3d; font-weight: bold; }
+    body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+      background: #f5f7fa; color: #2a3441; line-height: 1.6; }
+    header { background: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 22px; font-weight: bold; color: #1f4e79; }
+    nav a { color: #444; text-decoration: none; margin-left: 28px; font-size: 15px; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: #1f4e79; font-weight: bold; }
 
-    /* 页面横幅 */
-    .banner {
-      background: linear-gradient(120deg, #2f6b3d, #4a8f5c);
-      color: #fff;
-      text-align: center;
-      padding: 60px 20px;
-    }
-    .banner h1 { font-size: 34px; margin-bottom: 12px; }
-    .banner p { font-size: 16px; opacity: 0.9; }
+    .banner { background: linear-gradient(120deg, #1f4e79, #3a7cb8); color: #fff;
+      text-align: center; padding: 56px 20px; }
+    .banner h1 { font-size: 32px; margin-bottom: 10px; }
+    .banner p { font-size: 15px; opacity: 0.9; }
 
-    /* 产品网格 */
     .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-    .product-card {
-      background: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-      transition: transform 0.25s, box-shadow 0.25s;
-    }
-    .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.12);
-    }
-    .product-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
-    }
+    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .product-card { background: #fff; border-radius: 12px; overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06); transition: transform 0.25s, box-shadow 0.25s; }
+    .product-card:hover { transform: translateY(-6px); box-shadow: 0 10px 24px rgba(0,0,0,0.12); }
+    .product-card img { width: 100%; height: 220px; object-fit: cover; display: block; }
     .card-body { padding: 18px 20px 22px; }
-    .card-body h3 { font-size: 19px; color: #2c3e2c; margin-bottom: 8px; }
+    .card-body h3 { font-size: 19px; color: #2a3441; margin-bottom: 8px; }
     .card-body .spec { color: #888; font-size: 13px; margin-bottom: 12px; }
-    .card-body .price { color: #c0392b; font-size: 20px; font-weight: bold; margin-bottom: 14px; }
-    .btn {
-      display: inline-block;
-      background: #2f6b3d;
-      color: #fff;
-      padding: 9px 22px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 14px;
-      transition: background 0.2s;
-    }
-    .btn:hover { background: #24532f; }
+    .card-body .price { color: #c0392b; font-size: 18px; font-weight: bold; margin-bottom: 14px; }
+    .btn { display: inline-block; background: #1f4e79; color: #fff; padding: 9px 22px;
+      border-radius: 6px; text-decoration: none; font-size: 14px; transition: background 0.2s; }
+    .btn:hover { background: #163a5c; }
 
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      color: #888;
-      font-size: 14px;
-      border-top: 1px solid #e2e8de;
-      margin-top: 40px;
-    }
+    footer { text-align: center; padding: 30px 20px; color: #888; font-size: 14px;
+      border-top: 1px solid #e3e8ee; margin-top: 40px; }
     footer p { margin: 6px 0; }
 
-    @media (max-width: 820px) {
-      .product-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 520px) {
-      .product-grid { grid-template-columns: 1fr; }
-      nav a { margin-left: 14px; font-size: 14px; }
-      .banner h1 { font-size: 26px; }
-    }
+    @media (max-width: 820px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px) { .product-grid { grid-template-columns: 1fr; }
+      nav a { margin-left: 14px; font-size: 14px; } }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="logo">我的企业官网</div>
+    <div class="logo">编织袋定制厂家</div>
     <nav>
       <a href="index.html">首页</a>
       <a href="about.html">关于我们</a>
@@ -115,87 +56,81 @@
 
   <div class="banner">
     <h1>产品中心</h1>
-    <p>多年行业制造经验 · 品质可靠 · 自有工厂 · 支持定制</p>
+    <p>以下为部分样品 · 全部可定制印刷 · 需要什么都可以做</p>
   </div>
 
   <div class="container">
     <div class="product-grid">
 
-      <!-- 产品 1 -->
       <div class="product-card">
-        <img src="1.png" alt="五常稻花香2号">
+        <img src="1.png" alt="普通编织袋">
         <div class="card-body">
-          <h3>五常稻花香2号</h3>
-          <p class="spec">净含量25kg · 东北五常产地直供</p>
-          <p class="price">¥ 面议</p>
+          <h3>普通编织袋</h3>
+          <p class="spec">规格尺寸可定制 · 承重按需</p>
+          <p class="price">价格面议</p>
           <a href="contact.html" class="btn">立即咨询</a>
         </div>
       </div>
 
-      <!-- 产品 2 -->
       <div class="product-card">
-        <img src="2.png" alt="仙桃香软米">
+        <img src="2.png" alt="彩印编织袋">
         <div class="card-body">
-          <h3>仙桃香软米</h3>
-          <p class="spec">净含量25kg · 软糯清香 · 湖北仙桃</p>
-          <p class="price">¥ 面议</p>
+          <h3>彩印编织袋</h3>
+          <p class="spec">彩色印刷 · 品牌图案定制</p>
+          <p class="price">价格面议</p>
           <a href="contact.html" class="btn">立即咨询</a>
         </div>
       </div>
 
-      <!-- 产品 3 -->
       <div class="product-card">
-        <img src="3.png" alt="泰吉谷香米">
+        <img src="3.png" alt="复合编织袋">
         <div class="card-body">
-          <h3>泰吉谷香米</h3>
-          <p class="spec">净含量25kg · 皇家粮仓系列</p>
-          <p class="price">¥ 面议</p>
+          <h3>复合编织袋</h3>
+          <p class="spec">内衬复合 · 防潮防漏</p>
+          <p class="price">价格面议</p>
           <a href="contact.html" class="btn">立即咨询</a>
         </div>
       </div>
 
-      <!-- 产品 4 -->
       <div class="product-card">
-        <img src="4.png" alt="五常醇香米">
+        <img src="4.png" alt="大米包装袋">
         <div class="card-body">
-          <h3>五常醇香米</h3>
-          <p class="spec">净含量25kg · 醇香软糯</p>
-          <p class="price">¥ 面议</p>
+          <h3>大米包装袋</h3>
+          <p class="spec">5kg/10kg/25kg/50kg 可选</p>
+          <p class="price">价格面议</p>
           <a href="contact.html" class="btn">立即咨询</a>
         </div>
       </div>
 
-      <!-- 产品 5 -->
       <div class="product-card">
-        <img src="5.png" alt="礼盒装大米">
+        <img src="5.png" alt="面粉包装袋">
         <div class="card-body">
-          <h3>礼盒装大米</h3>
-          <p class="spec">净含量25kg · 高端礼盒 · 企业团购</p>
-          <p class="price">¥ 面议</p>
+          <h3>面粉包装袋</h3>
+          <p class="spec">防潮防漏 · 规格可定制</p>
+          <p class="price">价格面议</p>
           <a href="contact.html" class="btn">立即咨询</a>
         </div>
       </div>
 
-      <!-- 产品 6 -->
       <div class="product-card">
-        <img src="6.png" alt="原粮稻花香">
+        <img src="6.png" alt="饲料化肥袋">
         <div class="card-body">
-          <h3>原粮稻花香</h3>
-          <p class="spec">净含量25kg · 原粮优选 · 真空包装</p>
-          <p class="price">¥ 面议</p>
+          <h3>饲料化肥袋</h3>
+          <p class="spec">高承重 · 耐磨损</p>
+          <p class="price">价格面议</p>
           <a href="contact.html" class="btn">立即咨询</a>
         </div>
       </div>
 
-      <!-- 以后加产品：复制上面整个 .product-card 这一段，把图名改成 7.png / 8.png 即可 -->
+      <!-- 以后加产品：复制上面整个 .product-card 这一段，把图名改成 7.png 即可 -->
 
     </div>
   </div>
 
   <footer>
-    <p>多年行业制造经验 | 品质可靠,认证齐全 | 自有工厂,交期稳定 | 支持定制,服务完善</p>
+    <p>可定制印刷 · 按需设计 · 起订灵活 · 交期稳定</p>
     <p>联系方式：请在此处填写你的电话/微信</p>
-    <p>&copy; 2026 我的企业官网</p>
+    <p>&copy; 2026 编织袋定制厂家</p>
   </footer>
 
 </body>
