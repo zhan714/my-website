@@ -1,0 +1,38 @@
+[
+  {
+    "img": "images/putong.jpg",
+    "name": "普通编织袋",
+    "desc": "可定制规格/印刷，厂家直供",
+    "price": "价格面议"
+  },
+  {
+    "img": "images/caiyin.jpg",
+    "name": "彩印编织袋",
+    "desc": "高清彩印，图案文字随心定",
+    "price": "价格面议"
+  },
+  {
+    "img": "images/fuhe.jpg",
+    "name": "复合编织袋",
+    "desc": "防潮防漏，适合化工/饲料",
+    "price": "价格面议"
+  },
+  {
+    "img": "images/dami.jpg",
+    "name": "大米包装袋",
+    "desc": "食品级材质，结实耐用",
+    "price": "价格面议"
+  },
+  {
+    "img": "images/mianfen.jpg",
+    "name": "面粉包装袋",
+    "desc": "透气防潮，规格齐全",
+    "price": "价格面议"
+  },
+  {
+    "img": "images/siliao.jpg",
+    "name": "饲料化肥袋",
+    "desc": "承重强，耐磨损，大批量供应",
+    "price": "价格面议"
+  }
+]
