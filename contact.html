@@ -1,69 +1,107 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<title>联系我们 - 我的企业官网</title>
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, "Microsoft YaHei", sans-serif; color: #333; line-height: 1.6; }
-header { background: #1a3a5c; color: white; padding: 1rem 0; }
-.container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; display: flex; justify-content: space-between; align-items: center; }
-header h1 { font-size: 1.4rem; }
-nav a { color: white; text-decoration: none; margin-left: 1.5rem; font-size: 0.9rem; }
-.page-title { background: #f8f9fa; padding: 2rem 1rem; text-align: center; }
-.contact-wrap { max-width: 800px; margin: 3rem auto; padding: 0 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-.contact-info h3 { color: #1a3a5c; margin-bottom: 1.5rem; }
-.contact-item { margin-bottom: 1.5rem; }
-.label { font-weight: bold; color: #1a3a5c; }
-.form-group { margin-bottom: 1rem; }
-.form-group input, .form-group textarea { width: 100%; padding: 0.7rem; border: 1px solid #ddd; border-radius: 4px; }
-.submit-btn { background: #ff6b35; color: white; border: none; padding: 0.8rem 2rem; border-radius: 4px; cursor: pointer; }
-footer { background: #0d2438; color: #aaa; padding: 2rem 1rem; text-align: center; margin-top: 3rem; }
-@media (max-width: 768px) { .contact-wrap { grid-template-columns: 1fr; } }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>联系我们 - 编织袋定制厂家</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+      background: #f5f7fa; color: #2a3441; line-height: 1.6; }
+    header { background: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 22px; font-weight: bold; color: #1f4e79; }
+    nav a { color: #444; text-decoration: none; margin-left: 28px; font-size: 15px; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: #1f4e79; font-weight: bold; }
+
+    .banner { background: linear-gradient(120deg, #1f4e79, #3a7cb8); color: #fff;
+      text-align: center; padding: 56px 20px; }
+    .banner h1 { font-size: 32px; margin-bottom: 10px; }
+    .banner p { font-size: 15px; opacity: 0.9; }
+
+    .container { max-width: 1100px; margin: 40px auto; padding: 0 20px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+
+    .info-card { background: #fff; border-radius: 12px; padding: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    .info-card h2 { font-size: 20px; margin-bottom: 22px; color: #2a3441; }
+    .info-item { display: flex; align-items: flex-start; margin-bottom: 20px; }
+    .info-item .icon { font-size: 22px; margin-right: 16px; width: 30px; }
+    .info-item h3 { font-size: 15px; color: #2a3441; margin-bottom: 2px; }
+    .info-item p { font-size: 14px; color: #666; }
+
+    .form-card { background: #fff; border-radius: 12px; padding: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    .form-card h2 { font-size: 20px; margin-bottom: 22px; color: #2a3441; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 14px; color: #444; margin-bottom: 6px; }
+    .form-group input, .form-group textarea {
+      width: 100%; padding: 11px 14px; border: 1px solid #d5dde6; border-radius: 6px;
+      font-size: 14px; font-family: inherit; background: #fafbfc;
+    }
+    .form-group textarea { height: 100px; resize: vertical; }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #1f4e79; }
+    .submit-btn { background: #1f4e79; color: #fff; border: none; padding: 13px 30px;
+      border-radius: 6px; font-size: 15px; cursor: pointer; width: 100%; transition: background 0.2s; }
+    .submit-btn:hover { background: #163a5c; }
+
+    .map-box { max-width: 1100px; margin: 20px auto 40px; padding: 0 20px; }
+    .map-placeholder { background: #e8edf3; border-radius: 12px; height: 240px;
+      display: flex; align-items: center; justify-content: center; color: #8a98a8; font-size: 15px; }
+
+    footer { text-align: center; padding: 30px 20px; color: #888; font-size: 14px;
+      border-top: 1px solid #e3e8ee; margin-top: 40px; }
+    footer p { margin: 6px 0; }
+
+    @media (max-width: 820px) { .container { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
-<header>
-  <div class="container">
-    <h1>我的企业官网</h1>
+
+  <header>
+    <div class="logo">编织袋定制厂家</div>
     <nav>
       <a href="index.html">首页</a>
-      <a href="products.html">产品中心</a>
       <a href="about.html">关于我们</a>
-      <a href="contact.html">联系我们</a>
+      <a href="products.html">产品中心</a>
+      <a href="contact.html" class="active">联系我们</a>
     </nav>
+  </header>
+
+  <div class="banner">
+    <h1>联系我们</h1>
+    <p>获取定制报价 · 客户需要什么，我们就可以做什么</p>
   </div>
-</header>
-<section class="page-title">
-  <h2>联系我们</h2>
-  <p>获取产品报价，我们尽快回复</p>
-</section>
-<div class="contact-wrap">
-  <div class="contact-info">
-    <h3>联系方式</h3>
-    <div class="contact-item">
-      <div class="label">电话/微信</div>
-      <div>13238041139</div>
+
+  <div class="container">
+    <div class="info-card">
+      <h2>联系方式</h2>
+      <div class="info-item"><div class="icon">📍</div><div><h3>工厂地址</h3><p>请在此处填写详细地址</p></div></div>
+      <div class="info-item"><div class="icon">📞</div><div><h3>联系电话</h3><p>请在此处填写手机号</p></div></div>
+      <div class="info-item"><div class="icon">💬</div><div><h3>微信 / QQ</h3><p>请在此处填写微信号</p></div></div>
+      <div class="info-item"><div class="icon">✉️</div><div><h3>电子邮箱</h3><p>请在此处填写邮箱</p></div></div>
     </div>
-    <div class="contact-item">
-      <div class="label">邮箱</div>
-      <div>zhangyanan911515@qq.com</div>
-    </div>
-    <div class="contact-item">
-      <div class="label">地址</div>
-      <div>中国山东省日照市莒县刘官庄镇马驹岭村</div>
+
+    <div class="form-card">
+      <h2>提交定制需求</h2>
+      <form onsubmit="alert('感谢您的咨询，我们会尽快与您联系！'); return false;">
+        <div class="form-group"><label>公司/个人名称</label><input type="text" placeholder="请填写"></div>
+        <div class="form-group"><label>联系电话</label><input type="tel" placeholder="请填写手机号"></div>
+        <div class="form-group"><label>定制需求</label><textarea placeholder="请描述需要的编织袋类型、规格、印刷内容、数量等"></textarea></div>
+        <button type="submit" class="submit-btn">提交咨询</button>
+      </form>
     </div>
   </div>
-  <div class="contact-form">
-    <h3>在线留言</h3>
-    <div class="form-group"><input type="text" placeholder="您的姓名"></div>
-    <div class="form-group"><input type="text" placeholder="联系电话"></div>
-    <div class="form-group"><textarea placeholder="留言内容"></textarea></div>
-    <button class="submit-btn">提交留言</button>
+
+  <div class="map-box">
+    <div class="map-placeholder">📍 工厂位置地图（可在此处插入地图）</div>
   </div>
-</div>
-<footer>
-  <p>© 2026 我的企业官网</p>
-</footer>
+
+  <footer>
+    <p>可定制印刷 · 按需设计 · 起订灵活 · 交期稳定</p>
+    <p>联系方式：请在此处填写你的电话/微信</p>
+    <p>&copy; 2026 编织袋定制厂家</p>
+  </footer>
+
 </body>
 </html>
