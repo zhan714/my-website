@@ -14,8 +14,9 @@
   .container { max-width: 1100px; margin: 0 auto; padding: 30px 20px; }
   h2 { text-align: center; color: #1a3a5c; margin-bottom: 30px; font-size: 1.8em; }
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-  .card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); display: flex; flex-direction: column; }
-  /* 轮播图 */
+  .card-link { text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%; }
+  .card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); display: flex; flex-direction: column; height: 100%; transition: transform 0.2s; cursor: pointer; }
+  .card:hover { transform: translateY(-5px); }
   .carousel { position: relative; width: 100%; height: 220px; overflow: hidden; background: #fff; }
   .carousel-inner { display: flex; width: 100%; height: 100%; transition: transform 0.5s ease-in-out; }
   .carousel-inner img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; }
@@ -27,7 +28,7 @@
   .info h3 { color: #1a3a5c; margin: 0 0 10px; font-size: 1.2em; }
   .info .desc { color: #666; font-size: 0.9em; margin: 0 0 12px; line-height: 1.5; flex: 1; }
   .info .price { color: #c00; font-weight: bold; margin: 0 0 14px; }
-  .info .btn { align-self: flex-start; background: #1a3a5c; color: #fff; padding: 8px 18px; border-radius: 5px; text-decoration: none; font-size: 0.85em; }
+  .info .btn { align-self: flex-start; background: #1a3a5c; color: #fff; padding: 8px 18px; border-radius: 5px; text-decoration: none; font-size: 0.85em; pointer-events: auto; }
   .info .btn:hover { background: #2a4a6c; }
   footer { background: #1a3a5c; color: #fff; text-align: center; padding: 20px; margin-top: 50px; font-size: 0.85em; line-height: 1.8; }
   footer p { margin: 4px 0; }
@@ -66,6 +67,10 @@ fetch('products.json')
     box.innerHTML = '';
 
     products.forEach(function (p) {
+      var cardLink = document.createElement('a');
+      cardLink.className = 'card-link';
+      cardLink.href = 'detail.html?id=' + encodeURIComponent(p.folder.split('/')[1]);
+
       var card = document.createElement('div');
       card.className = 'card';
 
@@ -92,10 +97,11 @@ fetch('products.json')
         +   '<h3>' + p.name + '</h3>'
         +   '<p class="desc">' + p.desc + '</p>'
         +   '<p class="price">' + p.price + '</p>'
-        +   '<a class="btn" href="contact.html">立即咨询</a>'
+        +   '<a class="btn" href="contact.html" onclick="event.stopPropagation();">立即咨询</a>'
         + '</div>';
 
-      box.appendChild(card);
+      cardLink.appendChild(card);
+      box.appendChild(cardLink);
     });
 
     // 每个轮播独立初始化
@@ -118,7 +124,7 @@ fetch('products.json')
       function pause() { clearInterval(timer); }
 
       dots.forEach(function (d, j) {
-        d.addEventListener('click', function () { go(j); pause(); play(); });
+        d.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); go(j); pause(); play(); });
       });
 
       car.addEventListener('mouseenter', pause);
