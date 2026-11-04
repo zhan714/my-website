@@ -3,53 +3,155 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>产品中心_红军编织袋专卖店</title>
+<title>产品中心_红军编织袋专卖店_山东日照编织袋厂家</title>
 <style>
-  :root{--green:#2e5c3e;--orange:#d68b4a;--bg:#fdfaf5;}
+  :root{
+    --green:#2E5C3E;
+    --light-green:#4A7A5B;
+    --orange:#F4A261;
+    --bg:#FDF6EC;
+  }
   *{margin:0;padding:0;box-sizing:border-box;}
-  body{font-family:"Microsoft YaHei",sans-serif;background:var(--bg);color:#333;}
-  header{background:#fff;padding:20px 5%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,0.05);position:sticky;top:0;z-index:100;}
-  .logo{font-size:22px;font-weight:bold;color:var(--green);}
-  nav a{margin-left:25px;text-decoration:none;color:#555;font-size:16px;transition:.3s;}
-  nav a:hover{color:var(--orange);}
-  .container{max-width:1200px;margin:0 auto;padding:50px 20px;}
-  .page-title{text-align:center;color:var(--green);font-size:32px;margin-bottom:40px;font-weight:bold;letter-spacing:2px;}
+  body{
+    font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;
+    background:var(--bg);
+    color:#333;
+    line-height:1.6;
+  }
+  /* 头部统一风格 */
+  header{
+    background:#fff;
+    padding:20px 0;
+    box-shadow:0 2px 10px rgba(46,92,62,0.08);
+    position:sticky;
+    top:0;
+    z-index:100;
+  }
+  .header-inner{
+    max-width:1200px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 20px;
+  }
+  .logo{
+    font-family:"KaiTi","STKaiti","楷体",serif;
+    font-size:32px;
+    font-weight:900;
+    color:var(--green);
+    letter-spacing:2px;
+    text-decoration:none;
+  }
+  nav a{
+    margin-left:25px;
+    color:#555;
+    text-decoration:none;
+    font-size:16px;
+    transition:.3s;
+  }
+  nav a:hover, nav a.active{color:var(--green); font-weight:bold;}
   
-  /* 对称网格布局 */
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;}
+  /* 页面标题 */
+  .page-title{
+    text-align:center;
+    color:var(--green);
+    font-size:32px;
+    margin:40px 0 30px;
+    letter-spacing:2px;
+  }
   
-  .card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.05);transition:.3s;cursor:pointer;border:1px solid rgba(214,139,74,0.1);}
-  .card:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(46,92,62,0.12);}
-  .img-box{height:220px;background:#f0f0f0;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
-  .img-box img{width:100%;height:100%;object-fit:cover;transition:.5s;}
+  /* 核心：规整对称的网格布局（一行3个） */
+  .container{max-width:1200px;margin:0 auto;padding:0 20px 60px;}
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:30px;
+  }
+  
+  /* 卡片样式 */
+  .card{
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,0.05);
+    transition:.3s;
+    text-decoration:none;
+    color:inherit;
+    display:flex;
+    flex-direction:column;
+  }
+  .card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(46,92,62,0.15);
+  }
+  .img-box{
+    height:240px;
+    background:#f0f0f0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .img-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+  }
   .card:hover .img-box img{transform:scale(1.03);}
-  /* 占位图样式 */
-  .placeholder{color:#bbb;font-size:40px;display:flex;flex-direction:column;align-items:center;}
-  .placeholder span{font-size:14px;margin-top:5px;letter-spacing:2px;}
   
-  .info{padding:20px;text-align:center;}
-  .info h3{color:var(--green);font-size:20px;margin-bottom:8px;}
-  .info p{color:var(--orange);font-size:14px;line-height:1.5;}
+  .info{padding:20px;text-align:center;flex-grow:1;}
+  .info h3{
+    color:var(--green);
+    font-size:20px;
+    margin-bottom:8px;
+  }
+  .info p{
+    color:#666;
+    font-size:14px;
+    line-height:1.5;
+  }
   
-  footer{background:var(--green);color:#fff;text-align:center;padding:30px;margin-top:50px;}
+  footer{
+    background:var(--green);
+    color:#fff;
+    text-align:center;
+    padding:30px 20px;
+    margin-top:40px;
+  }
   footer p{margin:5px 0;font-size:14px;}
-  @media(max-width:768px){header{flex-direction:column;gap:15px;}nav a{margin:0 10px;}.grid{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}}
+  
+  /* 响应式：平板一行2个，手机一行1个 */
+  @media(max-width:992px){
+    .grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media(max-width:600px){
+    .grid{grid-template-columns:1fr;}
+    .header-inner{flex-direction:column;gap:15px;}
+    nav a{margin:0 10px;}
+    .logo{font-size:26px;}
+  }
 </style>
 </head>
 <body>
 <header>
-  <div class="logo">红军编织袋专卖店</div>
-  <nav>
-    <a href="index.html">首页</a>
-    <a href="about.html">关于我们</a>
-    <a href="products.html">产品中心</a>
-    <a href="contact.html">联系我们</a>
-  </nav>
+  <div class="header-inner">
+    <a href="index.html" class="logo">红军编织袋专卖店</a>
+    <nav>
+      <a href="index.html">首页</a>
+      <a href="about.html">关于我们</a>
+      <a href="products.html" class="active">产品中心</a>
+      <a href="contact.html">联系我们</a>
+    </nav>
+  </div>
 </header>
 
 <div class="container">
-  <h1 class="page-title">热销产品</h1>
-  <div class="grid" id="prod-grid"><p style="text-align:center;color:#888;">加载中...</p></div>
+  <h1 class="page-title">产品中心</h1>
+  <div class="grid" id="prod-grid">
+    <p style="text-align:center;color:#888;grid-column:1/-1;">加载中...</p>
+  </div>
 </div>
 
 <footer>
@@ -65,13 +167,12 @@ fetch('products.json').then(r=>r.json()).then(data=>{
   data.forEach(p=>{
     var id=p.folder.split('/')[1];
     var imgSrc=(p.imgs&&p.imgs[0])||(p.folder+'/1.png');
-    var card=document.createElement('div');
+    var card=document.createElement('a');
     card.className='card';
-    card.onclick=()=>location.href='detail.html?id='+id;
+    card.href='detail.html?id='+id;
     card.innerHTML=`
       <div class="img-box">
-        <img src="${imgSrc}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="placeholder" style="display:none;">🛍️<span>图片加载中</span></div>
+        <img src="${imgSrc}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/400x300?text=图片加载中'">
       </div>
       <div class="info">
         <h3>${p.name}</h3>
@@ -79,7 +180,9 @@ fetch('products.json').then(r=>r.json()).then(data=>{
       </div>`;
     grid.appendChild(card);
   });
-}).catch(()=>document.getElementById('prod-grid').innerHTML='<p style="color:red;text-align:center;">产品数据加载失败，请检查 products.json</p>');
+}).catch(()=>{
+  document.getElementById('prod-grid').innerHTML='<p style="color:red;text-align:center;grid-column:1/-1;">产品数据加载失败，请检查 products.json</p>';
+});
 </script>
 </body>
 </html>
