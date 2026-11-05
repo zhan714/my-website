@@ -19,10 +19,12 @@
   .logo{display:flex;align-items:center;gap:8px;color:var(--green);}
   .logo-icon{width:34px;height:34px;background:var(--green);color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:bold;}
   .logo-text{font-size:20px;font-weight:700;letter-spacing:1px;}
-  .nav-right{display:flex;align-items:center;gap:32px;}
-  nav{display:flex;gap:28px;font-size:15px;}
+  .nav-right{display:flex;align-items:center;gap:24px;}
+  nav{display:flex;gap:24px;font-size:15px;}
   nav a{color:#444;transition:.2s;font-weight:500;}
   nav a:hover,nav a.active{color:var(--orange);}
+  .back-prod{display:inline-flex;align-items:center;gap:6px;background:var(--green);color:#fff;padding:8px 16px;border-radius:20px;font-size:13.5px;font-weight:600;transition:.25s;white-space:nowrap;}
+  .back-prod:hover{background:var(--orange);transform:translateX(-2px);}
   .header-tel{background:var(--orange);color:#fff;padding:8px 18px;border-radius:20px;font-size:14px;font-weight:bold;white-space:nowrap;}
   .header-tel:hover{background:var(--green);}
 
@@ -31,11 +33,10 @@
   .breadcrumb a{color:rgba(255,255,255,0.8);}
   .breadcrumb a:hover{color:#fff;}
 
-  /* ===== 返回按钮 ===== */
+  /* 返回按钮 */
   .back-bar{padding:20px 0 0;}
   .back-btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--green);border:1.5px solid var(--green);padding:9px 20px;border-radius:24px;font-size:14px;font-weight:600;cursor:pointer;transition:.25s;}
   .back-btn:hover{background:var(--green);color:#fff;transform:translateX(-3px);}
-  .back-btn .arrow{font-size:16px;line-height:1;}
 
   /* 详情主体 */
   .detail{padding:30px 0 70px;}
@@ -55,7 +56,6 @@
   .info .price-note{color:#888;font-size:14px;margin-bottom:28px;}
   .info .desc{background:var(--card);border-radius:14px;padding:24px;margin-bottom:28px;border:1px solid #F0EBE1;}
   .info .desc p{color:#555;font-size:15px;line-height:1.9;margin-bottom:10px;}
-  .info .desc p:last-child{margin-bottom:0;}
   .sell-points{margin-bottom:30px;}
   .sell-points h3{font-size:17px;color:var(--green);margin-bottom:14px;}
   .sell-points ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
@@ -69,8 +69,8 @@
   .btn-ghost{background:#fff;color:var(--green);border:2px solid var(--green);}
   .btn-ghost:hover{background:var(--green);color:#fff;}
 
-  /* 悬浮返回按钮（移动端） */
-  .float-back{position:fixed;left:16px;bottom:24px;z-index:300;width:52px;height:52px;border-radius:50%;background:var(--green);color:#fff;display:none;align-items:center;justify-content:center;font-size:22px;box-shadow:0 6px 20px rgba(46,92,62,0.4);border:none;cursor:pointer;}
+  /* 悬浮返回 */
+  .float-back{position:fixed;right:18px;bottom:24px;z-index:300;width:52px;height:52px;border-radius:50%;background:var(--green);color:#fff;display:none;align-items:center;justify-content:center;font-size:22px;box-shadow:0 6px 20px rgba(46,92,62,0.4);border:none;cursor:pointer;}
 
   /* 页脚 */
   footer{background:var(--green-dark);color:#ccc;padding:56px 0 24px;font-size:14px;margin-top:40px;}
@@ -94,14 +94,13 @@
     .sell-points ul{grid-template-columns:1fr;}
     .btn{min-width:100%;}
     .foot-grid{grid-template-columns:1fr;}
-    .header-tel{display:none;}
+    .header-tel,.back-prod{display:none;}
     nav{display:none;}
   }
 </style>
 </head>
 <body>
 
-<!-- 导航 -->
 <header>
   <div class="container nav-inner">
     <a href="index.html" class="logo">
@@ -109,6 +108,7 @@
       <div class="logo-text">军编织袋专卖店</div>
     </a>
     <div class="nav-right">
+      <a href="products.html" class="back-prod">← 产品中心</a>
       <nav>
         <a href="index.html">首页</a>
         <a href="about.html">关于我们</a>
@@ -120,28 +120,23 @@
   </div>
 </header>
 
-<!-- 面包屑 -->
 <div class="breadcrumb">
   <div class="container"><a href="index.html">首页</a> / <a href="products.html">产品中心</a> / <span id="bc-name">产品详情</span></div>
 </div>
 
 <div class="container">
-  <!-- 返回按钮 -->
   <div class="back-bar">
-    <button class="back-btn" onclick="history.back()"><span class="arrow">←</span> 返回产品中心</button>
+    <button class="back-btn" onclick="location.href='products.html'">← 返回产品中心</button>
   </div>
 
-  <!-- 详情主体 -->
   <div class="detail">
     <div class="detail-grid">
-      <!-- 左侧图集 -->
       <div class="gallery">
         <div class="main-img">
           <img id="main-img" src="" alt="产品主图" onerror="this.src='https://via.placeholder.com/500x500?text=产品图'">
         </div>
         <div class="thumbs" id="thumbs"></div>
       </div>
-      <!-- 右侧信息 -->
       <div class="info">
         <h1 id="p-name">产品名称</h1>
         <div class="cat-tag" id="p-cat">分类</div>
@@ -161,10 +156,8 @@
   </div>
 </div>
 
-<!-- 悬浮返回按钮（手机端） -->
-<button class="float-back" onclick="history.back()">←</button>
+<button class="float-back" onclick="location.href='products.html'">🛍</button>
 
-<!-- 页脚 -->
 <footer>
   <div class="container">
     <div class="foot-grid">
@@ -197,37 +190,24 @@
 </footer>
 
 <script>
-// 从 URL 取 id 参数
 function getParam(name){const u=new URLSearchParams(location.search);return u.get(name);}
-
 fetch('products.json').then(r=>r.json()).then(data=>{
   const id=getParam('id');
   const p=data.find(x=>x.folder.split('/')[1]===id) || data[0];
-
-  // 面包屑 & 标题
   document.getElementById('bc-name').textContent=p.name;
   document.getElementById('p-name').textContent=p.name;
   document.getElementById('p-cat').textContent=p.cat||'产品';
   document.title=p.name+' - 红军编织袋专卖店';
-
-  // 描述
   document.getElementById('p-desc').innerHTML=(p.longDesc||p.desc||'').split('\n').map(l=>l?`<p>${l}</p>`:'').join('');
-
-  // 卖点
   const points=p.points||['厂家直销','支持定制','交期稳定','品质保证'];
   document.getElementById('p-points').innerHTML=points.map(pt=>`<li>${pt}</li>`).join('');
-
-  // 图片
   const imgs=p.imgs||[p.folder+'/1.png'];
-  const main=document.getElementById('main-img');
-  main.src=imgs[0];
+  document.getElementById('main-img').src=imgs[0];
   const tb=document.getElementById('thumbs');
   imgs.forEach((src,i)=>{
     tb.innerHTML+=`<div class="thumb${i===0?' active':''}" onclick="document.getElementById('main-img').src='${src}';document.querySelectorAll('.thumb').forEach(t=>t.classList.remove('active'));this.classList.add('active')"><img src="${src}" onerror="this.style.display='none'"></div>`;
   });
-}).catch(()=>{
-  document.getElementById('p-name').textContent='产品加载失败';
-});
+}).catch(()=>{document.getElementById('p-name').textContent='产品加载失败';});
 </script>
 </body>
 </html>
