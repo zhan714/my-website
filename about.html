@@ -12,8 +12,6 @@
   img{max-width:100%;display:block;}
 
   .container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px;}
-  .section-title{text-align:center;font-size:32px;color:var(--green);margin-bottom:12px;font-weight:600;}
-  .section-sub{text-align:center;color:#666;margin-bottom:50px;font-size:16px;}
 
   /* 导航 */
   header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid #eee;}
@@ -21,10 +19,12 @@
   .logo{display:flex;align-items:center;gap:8px;color:var(--green);}
   .logo-icon{width:34px;height:34px;background:var(--green);color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:bold;}
   .logo-text{font-size:20px;font-weight:700;letter-spacing:1px;}
-  .nav-right{display:flex;align-items:center;gap:32px;}
-  nav{display:flex;gap:28px;font-size:15px;}
+  .nav-right{display:flex;align-items:center;gap:24px;}
+  nav{display:flex;gap:24px;font-size:15px;}
   nav a{color:#444;transition:.2s;font-weight:500;}
   nav a:hover,nav a.active{color:var(--orange);}
+  .back-prod{display:inline-flex;align-items:center;gap:6px;background:var(--green);color:#fff;padding:8px 16px;border-radius:20px;font-size:13.5px;font-weight:600;transition:.25s;white-space:nowrap;}
+  .back-prod:hover{background:var(--orange);transform:translateX(-2px);}
   .header-tel{background:var(--orange);color:#fff;padding:8px 18px;border-radius:20px;font-size:14px;font-weight:bold;white-space:nowrap;}
   .header-tel:hover{background:var(--green);}
 
@@ -33,10 +33,10 @@
   .breadcrumb a{color:rgba(255,255,255,0.8);}
   .breadcrumb a:hover{color:#fff;}
 
-  /* 页面标题区 */
-  .page-hero{background:linear-gradient(135deg,#EAF1EC,#F8F7F2);padding:60px 0;text-align:center;}
-  .page-hero h1{font-size:40px;color:var(--green);margin-bottom:12px;}
-  .page-hero p{color:#666;font-size:17px;max-width:680px;margin:0 auto;}
+  /* 页面标题 */
+  .page-hero{background:linear-gradient(135deg,#EAF1EC,#F8F7F2);padding:50px 0;text-align:center;}
+  .page-hero h1{font-size:38px;color:var(--green);margin-bottom:10px;}
+  .page-hero p{color:#666;font-size:16px;max-width:680px;margin:0 auto;}
 
   /* 公司简介 */
   .intro{padding:70px 0;}
@@ -48,8 +48,10 @@
   .intro-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
   .intro-tags span{background:#E8F0EA;color:var(--green);padding:6px 16px;border-radius:20px;font-size:14px;font-weight:600;}
 
-  /* 四大实力板块（并排，不与首页重复） */
+  /* 四大实力板块 */
   .strength{padding:70px 0;background:#fff;}
+  .section-title{text-align:center;font-size:32px;color:var(--green);margin-bottom:12px;font-weight:600;}
+  .section-sub{text-align:center;color:#666;margin-bottom:50px;font-size:16px;}
   .str-grid{display:grid;grid-template-columns:repeat(4, 1fr);gap:20px;}
   .str-card{background:var(--card);border-radius:14px;padding:32px 22px;text-align:center;border:1px solid #F0EBE1;transition:.3s;}
   .str-card:hover{transform:translateY(-6px);box-shadow:0 12px 28px rgba(46,92,62,0.1);border-color:var(--green);}
@@ -57,15 +59,15 @@
   .str-card h3{color:var(--green);font-size:19px;margin-bottom:10px;}
   .str-card p{color:#777;font-size:14px;line-height:1.7;}
 
-  /* 发展历程（时间轴，并排） */
+  /* 发展历程 */
   .timeline{padding:70px 0;}
-  .tl-grid{display:grid;grid-template-columns:repeat(4, 1fr);gap:20px;position:relative;}
-  .tl-item{position:relative;background:var(--card);border-radius:14px;padding:28px 20px;border-top:4px solid var(--orange);}
+  .tl-grid{display:grid;grid-template-columns:repeat(4, 1fr);gap:20px;}
+  .tl-item{background:var(--card);border-radius:14px;padding:28px 20px;border-top:4px solid var(--orange);}
   .tl-year{font-size:26px;font-weight:900;color:var(--green);margin-bottom:8px;}
   .tl-item h4{font-size:17px;color:var(--green);margin-bottom:8px;}
   .tl-item p{font-size:14px;color:#666;line-height:1.7;}
 
-  /* 主营范围（图标并排） */
+  /* 主营范围 */
   .scope{padding:70px 0;background:#fff;}
   .scope-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:22px;}
   .scope-item{display:flex;gap:16px;align-items:flex-start;background:var(--card);padding:26px;border-radius:14px;border:1px solid #F0EBE1;transition:.3s;}
@@ -89,6 +91,9 @@
   .cta .btn{background:#fff;color:var(--green);padding:13px 34px;border-radius:8px;font-size:16px;font-weight:600;display:inline-block;transition:.3s;}
   .cta .btn:hover{background:var(--orange);color:#fff;}
 
+  /* 悬浮返回 */
+  .float-back{position:fixed;right:18px;bottom:24px;z-index:300;width:52px;height:52px;border-radius:50%;background:var(--green);color:#fff;display:none;align-items:center;justify-content:center;font-size:22px;box-shadow:0 6px 20px rgba(46,92,62,0.4);border:none;cursor:pointer;}
+
   /* 页脚 */
   footer{background:var(--green-dark);color:#ccc;padding:56px 0 24px;font-size:14px;margin-top:40px;}
   .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:40px;}
@@ -105,20 +110,20 @@
     .intro-grid{grid-template-columns:1fr;}
     .str-grid,.tl-grid{grid-template-columns:repeat(2, 1fr);}
     .scope-grid,.pm-grid{grid-template-columns:repeat(2, 1fr);}
+    .float-back{display:flex;}
     .foot-grid{grid-template-columns:1fr 1fr;gap:30px;}
   }
   @media(max-width:560px){
     .page-hero h1{font-size:30px;}
     .str-grid,.tl-grid,.scope-grid,.pm-grid{grid-template-columns:1fr;}
     .foot-grid{grid-template-columns:1fr;}
-    .header-tel{display:none;}
+    .header-tel,.back-prod{display:none;}
     nav{display:none;}
   }
 </style>
 </head>
 <body>
 
-<!-- 导航 -->
 <header>
   <div class="container nav-inner">
     <a href="index.html" class="logo">
@@ -126,6 +131,7 @@
       <div class="logo-text">军编织袋专卖店</div>
     </a>
     <div class="nav-right">
+      <a href="products.html" class="back-prod">← 产品中心</a>
       <nav>
         <a href="index.html">首页</a>
         <a href="about.html" class="active">关于我们</a>
@@ -137,12 +143,10 @@
   </div>
 </header>
 
-<!-- 面包屑 -->
 <div class="breadcrumb">
   <div class="container"><a href="index.html">首页</a> / 关于我们</div>
 </div>
 
-<!-- 页面标题 -->
 <div class="page-hero">
   <div class="container">
     <h1>关于我们</h1>
@@ -150,7 +154,6 @@
   </div>
 </div>
 
-<!-- 公司简介 -->
 <div class="intro">
   <div class="container">
     <div class="intro-grid">
@@ -170,7 +173,6 @@
   </div>
 </div>
 
-<!-- 四大实力板块（与首页不重复） -->
 <div class="strength">
   <div class="container">
     <h2 class="section-title">工厂实力</h2>
@@ -200,7 +202,6 @@
   </div>
 </div>
 
-<!-- 发展历程 -->
 <div class="timeline">
   <div class="container">
     <h2 class="section-title">发展历程</h2>
@@ -230,7 +231,6 @@
   </div>
 </div>
 
-<!-- 主营范围 -->
 <div class="scope">
   <div class="container">
     <h2 class="section-title">主营范围</h2>
@@ -264,7 +264,6 @@
   </div>
 </div>
 
-<!-- 服务承诺 -->
 <div class="promise">
   <div class="container">
     <h2 class="section-title">服务承诺</h2>
@@ -289,7 +288,6 @@
   </div>
 </div>
 
-<!-- CTA -->
 <div class="cta">
   <div class="container">
     <h2>需要定制编织袋？</h2>
@@ -298,7 +296,8 @@
   </div>
 </div>
 
-<!-- 页脚 -->
+<button class="float-back" onclick="location.href='products.html'">🛍</button>
+
 <footer>
   <div class="container">
     <div class="foot-grid">
