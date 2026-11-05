@@ -5,101 +5,64 @@
 <title>产品中心 - 红军编织袋专卖店</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#FAFAF7;color:#2C2C2C;font-size:15px;line-height:1.7;}
-
-/* 导航 */
+body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#FAFAF7;color:#2C2C2C;font-size:15px;line-height:1.6;}
 header{background:#fff;border-bottom:1px solid #ECECEC;position:sticky;top:0;z-index:100;}
 .nav{max-width:1100px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;}
-.logo{font-size:17px;font-weight:700;color:#3A6B4A;letter-spacing:0.3px;}
-.nav a{font-size:14px;color:#555;margin-left:28px;transition:color .2s;}
+.logo{font-size:17px;font-weight:700;color:#3A6B4A;}
+.nav a{font-size:14px;color:#555;margin-left:28px;text-decoration:none;}
 .nav a:hover,.nav a.active{color:#3A6B4A;}
 .nav a.active{font-weight:600;}
-
-/* 标题区 */
-.head{max-width:1100px;margin:0 auto;padding:64px 24px 40px;}
-.eyebrow{font-size:12.5px;font-weight:600;letter-spacing:3px;color:#3A6B4A;text-transform:uppercase;margin-bottom:16px;}
-.head h1{font-size:32px;font-weight:800;color:#2C2C2C;letter-spacing:-0.3px;}
-.head p{font-size:15px;color:#888;margin-top:12px;max-width:600px;}
-
-/* 分类 */
-.cat{max-width:1100px;margin:0 auto;padding:0 24px 24px;display:flex;gap:8px;flex-wrap:wrap;}
-.cat button{background:#fff;border:1px solid #ECECEC;color:#666;padding:8px 20px;border-radius:6px;font-size:14px;cursor:pointer;transition:.2s;}
-.cat button:hover{border-color:#3A6B4A;color:#3A6B4A;}
-.cat button.on{background:#3A6B4A;border-color:#3A6B4A;color:#fff;}
-
-/* 产品网格 */
-.grid{max-width:1100px;margin:0 auto;padding:0 24px 64px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.card{background:#fff;border:1px solid #ECECEC;border-radius:8px;overflow:hidden;transition:.25s;display:block;}
-.card:hover{border-color:#3A6B4A;transform:translateY(-3px);}
-.card .pic{aspect-ratio:4/3;background:#F4F1E8;overflow:hidden;}
-.card .pic img{width:100%;height:100%;object-fit:cover;}
-.card .pic .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#BBB;font-size:13px;}
-.card .txt{padding:20px;}
-.card .tag{display:inline-block;font-size:12px;font-weight:600;color:#3A6B4A;background:#F4F1E8;padding:4px 10px;border-radius:4px;margin-bottom:10px;}
-.card h4{font-size:17px;font-weight:700;color:#2C2C2C;margin-bottom:6px;}
-.card p{font-size:13.5px;color:#888;}
-.card .more{display:inline-block;margin-top:14px;font-size:13.5px;font-weight:600;color:#3A6B4A;}
-
-/* 底部条 */
-.band{background:#3A6B4A;color:#fff;padding:44px 24px;text-align:center;margin-top:24px;}
-.band h3{font-size:20px;font-weight:700;margin-bottom:8px;}
-.band p{font-size:14px;opacity:0.85;margin-bottom:22px;}
-.band a{display:inline-block;background:#fff;color:#3A6B4A;padding:12px 30px;border-radius:6px;font-size:14px;font-weight:600;}
-
-/* 页脚 */
+.band{background:#3A6B4A;color:#fff;padding:30px 24px;text-align:center;margin-top:40px;}
+.band h3{font-size:20px;margin-bottom:8px;}
+.band p{font-size:14px;opacity:0.9;margin-bottom:16px;}
+.band a{display:inline-block;background:#fff;color:#3A6B4A;padding:10px 24px;border-radius:6px;font-weight:600;text-decoration:none;margin:0 5px;}
+.section{max-width:1100px;margin:0 auto;padding:50px 24px;}
+.section-head{margin-bottom:24px;border-bottom:1px solid #ECECEC;padding-bottom:16px;}
+.section-head h2{font-size:22px;display:inline-block;margin-right:12px;}
+.section-head .desc{color:#777;font-size:14px;}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+figure{margin:0;cursor:pointer;}
+.pic{aspect-ratio:1;background:#F4F1E8;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:4px;}
+.pic img{width:100%;height:100%;object-fit:cover;}
+figcaption{font-size:13px;color:#666;padding:8px 0;text-align:center;}
 footer{background:#F4F1E8;padding:40px 24px 24px;}
 .foot{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:24px;}
-.foot .info h4,.foot .links h4{font-size:15px;font-weight:700;color:#2C2C2C;margin-bottom:8px;}
-.foot .info p{font-size:13.5px;color:#666;margin:4px 0;}
-.foot .links a{display:block;font-size:13.5px;color:#666;margin:4px 0;}
-.foot .links a:hover{color:#3A6B4A;}
+.info h4,.links h4{font-size:15px;margin-bottom:8px;}
+.info p,.links a{font-size:13.5px;color:#666;margin:4px 0;display:block;text-decoration:none;}
 .copy{max-width:1100px;margin:0 auto;padding-top:20px;border-top:1px solid #DDD;font-size:12.5px;color:#999;text-align:center;}
-
-@media(max-width:768px){
-  .grid{grid-template-columns:repeat(2,1fr);}
-  .nav a{margin-left:16px;}
-}
-@media(max-width:480px){
-  .grid{grid-template-columns:1fr;}
-  .nav a:not(.active):not(:last-child){display:none;}
-}
+#lb{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);display:none;align-items:center;justify-content:center;z-index:999;flex-direction:column;}
+#lb.on{display:flex;}
+#lb-img{max-width:90%;max-height:80%;border-radius:4px;}
+#lb-cap{color:#fff;margin-top:12px;font-size:14px;}
+#lb .nav-btn{position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:40px;cursor:pointer;padding:20px;user-select:none;}
+#lb .prev{left:20px;} #lb .next{right:20px;}
+@media(max-width:768px){.grid{grid-template-columns:repeat(2,1fr);}.nav a{margin-left:16px;}}
 </style>
 
-<body>
-
-<header>
-  <div class="nav">
-    <div class="logo">红军编织袋专卖店</div>
-    <div>
-      <a href="index.html">首页</a>
-      <a href="about.html">关于</a>
-      <a href="products.html" class="active">产品</a>
-      <a href="contact.html">联系</a>
-      <a href="tel:13734322272" style="color:#3A6B4A;font-weight:600;">13734322272</a>
-    </div>
+<div class="nav">
+  <div class="logo">红军编织袋专卖店</div>
+  <div>
+    <a href="index.html">首页</a>
+    <a href="about.html">关于</a>
+    <a href="products.html" class="active">产品</a>
+    <a href="contact.html">联系</a>
+    <a href="tel:13734322272" style="color:#3A6B4A;font-weight:600;">13734322272</a>
   </div>
-</header>
-
-<div class="head">
-  <div class="eyebrow">PRODUCTS</div>
-  <h1>产品中心</h1>
-  <p>多品类包装袋，源头工厂直供，支持按需定制印刷</p>
 </div>
 
-<div class="cat" id="cat">
-  <button class="on" data-c="all">全部</button>
-  <button data-c="普通编织袋">普通编织袋</button>
-  <button data-c="彩印编织袋">彩印编织袋</button>
-  <button data-c="复合编织袋">复合编织袋</button>
-  <button data-c="粮食饲料袋">粮食饲料袋</button>
-</div>
-
-<div class="grid" id="grid"></div>
+<section class="section">
+  <div class="section-head">
+    <h2>产品中心</h2>
+    <span class="desc">看中哪款直接电话/微信预订，支持定制打样</span>
+  </div>
+  <div id="sections"></div>
+</section>
 
 <div class="band">
   <h3>需要定制？</h3>
   <p>发个样品图或说清需求，免费报价，快速打样</p>
-  <a href="tel:13734322272">立即拨打 13734322272</a>
+  <a href="tel:13734322272">电话：13734322272</a>
+  <a href="weixin://zhangyanan911515">微信：zhangyanan911515</a>
 </div>
 
 <footer>
@@ -117,59 +80,57 @@ footer{background:#F4F1E8;padding:40px 24px 24px;}
       <a href="products.html">产品</a>
       <a href="contact.html">联系</a>
     </div>
-    <div class="links">
-      <h4>产品</h4>
-      <a href="products.html">普通编织袋</a>
-      <a href="products.html">彩印编织袋</a>
-      <a href="products.html">复合编织袋</a>
-      <a href="products.html">粮食饲料袋</a>
-    </div>
   </div>
   <div class="copy">© 2026 红军编织袋专卖店</div>
 </footer>
 
-<script>
-const products=[
-  {name:"普通编织袋",cat:"普通编织袋",tag:"热销",desc:"承重强、性价比高，适用于多种场景",img:"products/普通编织袋/1.jpg"},
-  {name:"灰色编织袋",cat:"普通编织袋",tag:"常用",desc:"经典灰色，规格齐全",img:"products/普通编织袋/2.jpg"},
-  {name:"绿色编织袋",cat:"普通编织袋",tag:"常用",desc:"绿色加厚，结实耐用",img:"products/普通编织袋/3.jpg"},
-  {name:"彩印编织袋",cat:"彩印编织袋",tag:"定制",desc:"精美印刷，提升品牌形象",img:"products/彩印编织袋/1.jpg"},
-  {name:"彩印化肥袋",cat:"彩印编织袋",tag:"定制",desc:"图案清晰，专业包装",img:"products/彩印编织袋/2.jpg"},
-  {name:"复合编织袋",cat:"复合编织袋",tag:"防潮",desc:"防潮防漏，适合精细包装",img:"products/复合编织袋/1.jpg"},
-  {name:"内膜复合袋",cat:"复合编织袋",tag:"防潮",desc:"内衬薄膜，防潮性能强",img:"products/复合编织袋/2.jpg"},
-  {name:"粮食包装袋",cat:"粮食饲料袋",tag:"食品级",desc:"专业级包装，安全放心",img:"products/粮食饲料袋/1.jpg"},
-  {name:"饲料化肥袋",cat:"粮食饲料袋",tag:"食品级",desc:"承重大，适用于饲料化肥",img:"products/粮食饲料袋/2.jpg"},
-];
+<div id="lb">
+  <div class="nav-btn prev" onclick="stepLb(-1)">‹</div>
+  <img id="lb-img" src="" alt="">
+  <div id="lb-cap"></div>
+  <div class="nav-btn next" onclick="stepLb(1)">›</div>
+</div>
 
-function render(list){
-  const box=document.getElementById('grid');
-  if(list.length===0){box.innerHTML='<p style="color:#999;">该分类暂无产品</p>';return;}
-  box.innerHTML=list.map(p=>`
-    <a href="detail.html?name=${encodeURIComponent(p.name)}" class="card">
-      <div class="pic">
-        <img src="${p.img}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <div class="ph" style="display:none;">产品图</div>
-      </div>
-      <div class="txt">
-        <span class="tag">${p.tag}</span>
-        <h4>${p.name}</h4>
-        <p>${p.desc}</p>
-        <span class="more">查看详情 →</span>
-      </div>
-    </a>`).join('');
+<script>
+const sections=[
+  {id:"putong", name:"普通编织袋", desc:"承重强、性价比高，日常通用首选", range:[1,8]},
+  {id:"caiyin", name:"彩印编织袋", desc:"精美印刷，提升品牌形象", range:[1,8]},
+  {id:"fuhe",   name:"复合与粮食饲料袋", desc:"防潮防漏，包含复合/大米/面粉/饲料等", range:[1,12]},
+];
+const ext=".jpg"; 
+
+let allImgs=[];
+function build(){
+  const box=document.getElementById('sections');
+  let html="";
+  sections.forEach((s,si)=>{
+    let figs="";
+    for(let i=s.range[0];i<=s.range[1];i++){
+      const src=`images/${s.id}/${i}${ext}`;
+      figs+=`<figure onclick='openLb(${allImgs.length})'>
+        <div class="pic"><img src="${src}" alt="${s.name} ${i}" onerror="this.parentNode.style.display='none'"></div>
+        <figcaption>${s.name}</figcaption></figure>`;
+      allImgs.push({src:src, cap:`${s.name} (第${i}款)`});
+    }
+    html+=`<div class="section" style="margin-top:40px;">
+      <div class="section-head"><span style="color:#3A6B4A;margin-right:8px;">0${si+1}</span><h2 style="display:inline;">${s.name}</h2><span class="desc">${s.desc}</span></div>
+      <div class="grid">${figs}</div>
+    </div>`;
+  });
+  box.innerHTML=html;
 }
 
-document.querySelectorAll('#cat button').forEach(b=>{
-  b.onclick=()=>{
-    document.querySelectorAll('#cat button').forEach(x=>x.classList.remove('on'));
-    b.classList.add('on');
-    const c=b.dataset.c;
-    render(c==='all'?products:products.filter(p=>p.cat===c));
-  };
+let cur=0;
+function openLb(i){cur=i;document.getElementById('lb').classList.add('on');document.getElementById('lb-img').src=allImgs[i].src;document.getElementById('lb-cap').textContent=allImgs[i].cap;}
+function stepLb(d){cur=(cur+d+allImgs.length)%allImgs.length;document.getElementById('lb-img').src=allImgs[cur].src;document.getElementById('lb-cap').textContent=allImgs[cur].cap;}
+document.getElementById('lb').addEventListener('click',e=>{if(e.target.id==='lb')document.getElementById('lb').classList.remove('on');});
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('lb').classList.contains('on'))return;
+  if(e.key==='Escape')document.getElementById('lb').classList.remove('on');
+  if(e.key==='ArrowLeft')stepLb(-1);
+  if(e.key==='ArrowRight')stepLb(1);
 });
-
-render(products);
+build();
 </script>
-
 </body>
 </html>
