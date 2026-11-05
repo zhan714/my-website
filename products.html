@@ -5,64 +5,118 @@
 <title>产品中心 - 红军编织袋专卖店</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#FAFAF7;color:#2C2C2C;font-size:15px;line-height:1.6;}
+body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#FAFAF7;color:#2C2C2C;font-size:15px;line-height:1.7;}
+
+/* 导航 */
 header{background:#fff;border-bottom:1px solid #ECECEC;position:sticky;top:0;z-index:100;}
 .nav{max-width:1100px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;}
 .logo{font-size:17px;font-weight:700;color:#3A6B4A;}
-.nav a{font-size:14px;color:#555;margin-left:28px;text-decoration:none;}
+.nav a{font-size:14px;color:#555;margin-left:28px;text-decoration:none;transition:color .2s;}
 .nav a:hover,.nav a.active{color:#3A6B4A;}
 .nav a.active{font-weight:600;}
-.band{background:#3A6B4A;color:#fff;padding:30px 24px;text-align:center;margin-top:40px;}
-.band h3{font-size:20px;margin-bottom:8px;}
-.band p{font-size:14px;opacity:0.9;margin-bottom:16px;}
-.band a{display:inline-block;background:#fff;color:#3A6B4A;padding:10px 24px;border-radius:6px;font-weight:600;text-decoration:none;margin:0 5px;}
-.section{max-width:1100px;margin:0 auto;padding:50px 24px;}
-.section-head{margin-bottom:24px;border-bottom:1px solid #ECECEC;padding-bottom:16px;}
-.section-head h2{font-size:22px;display:inline-block;margin-right:12px;}
-.section-head .desc{color:#777;font-size:14px;}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
-figure{margin:0;cursor:pointer;}
-.pic{aspect-ratio:1;background:#F4F1E8;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:4px;}
-.pic img{width:100%;height:100%;object-fit:cover;}
-figcaption{font-size:13px;color:#666;padding:8px 0;text-align:center;}
+
+/* 标题 */
+.head{max-width:1100px;margin:0 auto;padding:56px 24px 32px;}
+.eyebrow{font-size:12.5px;font-weight:600;letter-spacing:3px;color:#3A6B4A;text-transform:uppercase;margin-bottom:14px;}
+.head h1{font-size:30px;font-weight:800;color:#2C2C2C;}
+.head p{font-size:15px;color:#888;margin-top:10px;max-width:640px;}
+
+/* 转化条 */
+.cta-line{background:#3A6B4A;color:#fff;text-align:center;padding:20px 24px;margin-bottom:48px;}
+.cta-line strong{font-size:17px;}
+.cta-line span{opacity:0.9;font-size:14px;margin-left:12px;}
+.cta-line a{color:#fff;font-weight:700;text-decoration:underline;margin-left:6px;}
+
+/* 板块 */
+.section{max-width:1100px;margin:0 auto;padding:0 24px 56px;}
+.section-head{display:flex;align-items:baseline;gap:12px;margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid #ECECEC;}
+.section-head .num{font-size:12.5px;font-weight:600;color:#3A6B4A;background:#F4F1E8;padding:3px 10px;border-radius:4px;}
+.section-head h2{font-size:21px;font-weight:700;color:#2C2C2C;}
+.section-head .desc{font-size:13.5px;color:#999;margin-left:auto;}
+
+.sec-body{display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:start;}
+.intro{background:#fff;border:1px solid #ECECEC;border-radius:8px;padding:20px;}
+.intro .lbl{font-size:11.5px;font-weight:600;letter-spacing:2px;color:#3A6B4A;text-transform:uppercase;margin-bottom:10px;}
+.intro p{font-size:13.5px;color:#AAA;line-height:1.8;min-height:120px;}
+.intro .meta{margin-top:16px;padding-top:16px;border-top:1px dashed #DDD;font-size:13px;color:#999;}
+.intro .meta div{margin-bottom:8px;}
+.intro .meta b{color:#666;font-weight:600;}
+
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+figure{margin:0;cursor:pointer;background:#fff;border:1px solid #ECECEC;border-radius:8px;overflow:hidden;transition:.25s;}
+figure:hover{border-color:#3A6B4A;transform:translateY(-3px);}
+.pic{aspect-ratio:1;background:#F4F1E8;overflow:hidden;position:relative;}
+.pic img{width:100%;height:100%;object-fit:cover;display:block;transition:.4s;}
+figure:hover .pic img{transform:scale(1.05);}
+.pic .empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:13px;color:#BBB;}
+figcaption{font-size:12.5px;color:#AAA;padding:10px 12px;text-align:center;min-height:38px;display:flex;align-items:center;justify-content:center;}
+
+/* 灯箱 */
+#lb{position:fixed;inset:0;background:rgba(20,30,25,0.92);display:none;align-items:center;justify-content:center;z-index:999;flex-direction:column;padding:24px;}
+#lb.on{display:flex;}
+#lb img{max-width:90%;max-height:75vh;border-radius:8px;}
+#lb-cap{color:#fff;margin-top:16px;font-size:14px;opacity:0.9;}
+#lb .x{position:absolute;top:24px;right:32px;color:#fff;font-size:32px;cursor:pointer;line-height:1;}
+#lb .nav{position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:40px;cursor:pointer;padding:20px;user-select:none;}
+#lb .p{left:8px;} #lb .n{right:8px;}
+
+/* 底部条 */
+.band{background:#3A6B4A;color:#fff;padding:44px 24px;text-align:center;margin-top:24px;}
+.band h3{font-size:20px;font-weight:700;margin-bottom:8px;}
+.band p{font-size:14px;opacity:0.85;margin-bottom:22px;}
+.band a{display:inline-block;background:#fff;color:#3A6B4A;padding:12px 28px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;margin:0 6px;}
+
+/* 页脚 */
 footer{background:#F4F1E8;padding:40px 24px 24px;}
 .foot{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:24px;}
-.info h4,.links h4{font-size:15px;margin-bottom:8px;}
+.info h4,.links h4{font-size:15px;font-weight:700;margin-bottom:8px;}
 .info p,.links a{font-size:13.5px;color:#666;margin:4px 0;display:block;text-decoration:none;}
 .copy{max-width:1100px;margin:0 auto;padding-top:20px;border-top:1px solid #DDD;font-size:12.5px;color:#999;text-align:center;}
-#lb{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);display:none;align-items:center;justify-content:center;z-index:999;flex-direction:column;}
-#lb.on{display:flex;}
-#lb-img{max-width:90%;max-height:80%;border-radius:4px;}
-#lb-cap{color:#fff;margin-top:12px;font-size:14px;}
-#lb .nav-btn{position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:40px;cursor:pointer;padding:20px;user-select:none;}
-#lb .prev{left:20px;} #lb .next{right:20px;}
-@media(max-width:768px){.grid{grid-template-columns:repeat(2,1fr);}.nav a{margin-left:16px;}}
+
+@media(max-width:768px){
+  .grid{grid-template-columns:repeat(3,1fr);}
+  .sec-body{grid-template-columns:1fr;gap:20px;}
+  .head h1{font-size:24px;}
+}
+@media(max-width:480px){
+  .grid{grid-template-columns:repeat(2,1fr);}
+  .nav a:not(.active):not(:last-child){display:none;}
+}
 </style>
 
-<div class="nav">
-  <div class="logo">红军编织袋专卖店</div>
-  <div>
-    <a href="index.html">首页</a>
-    <a href="about.html">关于</a>
-    <a href="products.html" class="active">产品</a>
-    <a href="contact.html">联系</a>
-    <a href="tel:13734322272" style="color:#3A6B4A;font-weight:600;">13734322272</a>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">红军编织袋专卖店</div>
+    <div>
+      <a href="index.html">首页</a>
+      <a href="about.html">关于</a>
+      <a href="products.html" class="active">产品</a>
+      <a href="contact.html">联系</a>
+      <a href="tel:13734322272" style="color:#3A6B4A;font-weight:600;">13734322272</a>
+    </div>
   </div>
+</header>
+
+<div class="head">
+  <div class="eyebrow">PRODUCTS</div>
+  <h1>产品中心</h1>
+  <p>以下为各品类实拍展示，支持按需定制印刷。看中哪款，电话或微信直接联系，我们免费报价、快速打样。</p>
 </div>
 
-<section class="section">
-  <div class="section-head">
-    <h2>产品中心</h2>
-    <span class="desc">看中哪款直接电话/微信预订，支持定制打样</span>
-  </div>
-  <div id="sections"></div>
-</section>
+<div class="cta-line">
+  <strong>看中哪款直接订 · 电话微信都行</strong>
+  <span>📞 <a href="tel:13734322272">13734322272</a>　|　💬 微信 zhangyanan911515</span>
+</div>
+
+<div id="sections"></div>
 
 <div class="band">
-  <h3>需要定制？</h3>
+  <h3>想要图上没有的款式？</h3>
   <p>发个样品图或说清需求，免费报价，快速打样</p>
-  <a href="tel:13734322272">电话：13734322272</a>
-  <a href="weixin://zhangyanan911515">微信：zhangyanan911515</a>
+  <a href="tel:13734322272">📞 立即拨打</a>
+  <a href="contact.html">💬 微信咨询</a>
 </div>
 
 <footer>
@@ -80,57 +134,111 @@ footer{background:#F4F1E8;padding:40px 24px 24px;}
       <a href="products.html">产品</a>
       <a href="contact.html">联系</a>
     </div>
+    <div class="links">
+      <h4>板块</h4>
+      <a href="#s-putong">普通编织袋</a>
+      <a href="#s-caiyin">彩印编织袋</a>
+      <a href="#s-fuhe">复合与粮食饲料袋</a>
+    </div>
   </div>
-  <div class="copy">© 2026 红军编织袋专卖店</div>
+  <div class="copy">© 2026 红军编织袋专卖店 · 可定制印刷 · 按需设计 · 起订灵活 · 交期稳定</div>
 </footer>
 
 <div id="lb">
-  <div class="nav-btn prev" onclick="stepLb(-1)">‹</div>
+  <span class="x" onclick="closeLb()">×</span>
+  <span class="nav p" onclick="stepLb(-1)">‹</span>
   <img id="lb-img" src="" alt="">
+  <span class="nav n" onclick="stepLb(1)">›</span>
   <div id="lb-cap"></div>
-  <div class="nav-btn next" onclick="stepLb(1)">›</div>
 </div>
 
 <script>
+/* ===== 产品配置：只改这里 ===== */
 const sections=[
-  {id:"putong", name:"普通编织袋", desc:"承重强、性价比高，日常通用首选", range:[1,8]},
-  {id:"caiyin", name:"彩印编织袋", desc:"精美印刷，提升品牌形象", range:[1,8]},
-  {id:"fuhe",   name:"复合与粮食饲料袋", desc:"防潮防漏，包含复合/大米/面粉/饲料等", range:[1,12]},
+  {
+    id:"putong", name:"普通编织袋", slot:20,
+    intro:"后期编辑",          // ← 板块介绍，后期替换成你的文字
+    meta:{"适用场景":"后期编辑","材质":"后期编辑","定制":"后期编辑","交期":"后期编辑"}
+  },
+  {
+    id:"caiyin", name:"彩印编织袋", slot:20,
+    intro:"后期编辑",
+    meta:{"印刷工艺":"后期编辑","适用场景":"后期编辑","定制":"后期编辑","交期":"后期编辑"}
+  },
+  {
+    id:"fuhe", name:"复合与粮食饲料袋", slot:20,
+    intro:"后期编辑",
+    meta:{"适用品类":"后期编辑","防潮性能":"后期编辑","定制":"后期编辑","交期":"后期编辑"}
+  },
 ];
-const ext=".jpg"; 
+const ext=".jpg";   // 图片后缀：jpg 或 png
+/* ============================== */
 
 let allImgs=[];
+
 function build(){
   const box=document.getElementById('sections');
   let html="";
   sections.forEach((s,si)=>{
     let figs="";
-    for(let i=s.range[0];i<=s.range[1];i++){
+    for(let i=1;i<=s.slot;i++){
       const src=`images/${s.id}/${i}${ext}`;
       figs+=`<figure onclick='openLb(${allImgs.length})'>
-        <div class="pic"><img src="${src}" alt="${s.name} ${i}" onerror="this.parentNode.style.display='none'"></div>
-        <figcaption>${s.name}</figcaption></figure>`;
-      allImgs.push({src:src, cap:`${s.name} (第${i}款)`});
+        <div class="pic">
+          <img src="${src}" alt="${s.name} ${i}" onerror="this.style.display='none'">
+          <div class="empty">图位 ${String(i).padStart(2,'0')}</div>
+        </div>
+        <figcaption>后期编辑</figcaption>
+      </figure>`;
+      allImgs.push({src:src, cap:`${s.name} · 图位 ${String(i).padStart(2,'0')}`});
     }
-    html+=`<div class="section" style="margin-top:40px;">
-      <div class="section-head"><span style="color:#3A6B4A;margin-right:8px;">0${si+1}</span><h2 style="display:inline;">${s.name}</h2><span class="desc">${s.desc}</span></div>
-      <div class="grid">${figs}</div>
-    </div>`;
+    const metaHtml=Object.entries(s.meta).map(([k,v])=>`<div><b>${k}：</b>${v}</div>`).join('');
+    html+=`<section class="section" id="s-${s.id}">
+      <div class="section-head">
+        <span class="num">0${si+1}</span>
+        <h2>${s.name}</h2>
+        <span class="desc">共预留 ${s.slot} 个图位</span>
+      </div>
+      <div class="sec-body">
+        <div class="intro">
+          <div class="lbl">板块介绍</div>
+          <p>${s.intro}</p>
+          <div class="meta">${metaHtml}</div>
+        </div>
+        <div class="grid">${figs}</div>
+      </div>
+    </section>`;
   });
   box.innerHTML=html;
 }
 
+/* 灯箱 */
 let cur=0;
-function openLb(i){cur=i;document.getElementById('lb').classList.add('on');document.getElementById('lb-img').src=allImgs[i].src;document.getElementById('lb-cap').textContent=allImgs[i].cap;}
-function stepLb(d){cur=(cur+d+allImgs.length)%allImgs.length;document.getElementById('lb-img').src=allImgs[cur].src;document.getElementById('lb-cap').textContent=allImgs[cur].cap;}
-document.getElementById('lb').addEventListener('click',e=>{if(e.target.id==='lb')document.getElementById('lb').classList.remove('on');});
+function openLb(i){
+  cur=i;
+  document.getElementById('lb').classList.add('on');
+  const img=document.getElementById('lb-img');
+  img.onload=()=>{};
+  img.src=allImgs[i].src;
+  document.getElementById('lb-cap').textContent=allImgs[i].cap;
+}
+function closeLb(){document.getElementById('lb').classList.remove('on');}
+function stepLb(d){
+  cur=(cur+d+allImgs.length)%allImgs.length;
+  document.getElementById('lb-img').src=allImgs[cur].src;
+  document.getElementById('lb-cap').textContent=allImgs[cur].cap;
+}
+document.getElementById('lb').addEventListener('click',e=>{if(e.target.id==='lb')closeLb();});
 document.addEventListener('keydown',e=>{
-  if(!document.getElementById('lb').classList.contains('on'))return;
-  if(e.key==='Escape')document.getElementById('lb').classList.remove('on');
+  const lb=document.getElementById('lb');
+  if(!lb.classList.contains('on'))return;
+  if(e.key==='Escape')closeLb();
   if(e.key==='ArrowLeft')stepLb(-1);
   if(e.key==='ArrowRight')stepLb(1);
 });
+
 build();
 </script>
+
 </body>
 </html>
