@@ -5,37 +5,68 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>关于我们 - 红军编织袋专卖店</title>
 <style>
+  :root{--green:#3A6B4A;--green-dark:#2C5240;--cream:#FBF7EF;--card:#FFFFFF;--text:#3A3A3A;--text-soft:#6B6B6B;--orange:#C8862E;--line:#EDE6DA;--shadow:0 6px 24px rgba(58,107,74,0.06);}
   *{margin:0;padding:0;box-sizing:border-box;}
-  body{font-family:"Microsoft YaHei",sans-serif;background:#FAF7F0;color:#333;}
-  .container{max-width:1200px;margin:0 auto;padding:0 20px;}
-  /* 导航 */
-  header{background:#fff;padding:15px 0;border-bottom:1px solid #eee;}
-  .nav-flex{display:flex;align-items:center;justify-content:space-between;}
-  .logo{font-size:24px;font-weight:bold;color:#2E5E3E;}
-  .nav-links{display:flex;gap:30px;align-items:center;}
-  .nav-links a{text-decoration:none;color:#333;font-size:16px;}
-  .nav-links a.active{color:#E67E22;font-weight:bold;}
-  .nav-tel{background:#E67E22;color:#fff;padding:10px 25px;border-radius:30px;text-decoration:none;font-weight:bold;}
-  /* 面包屑 */
-  .breadcrumb{background:#2E5E3E;color:#fff;padding:15px 0;font-size:15px;}
-  .breadcrumb a{color:#fff;text-decoration:none;}
-  /* 内容 */
-  .about-section{padding:60px 0;}
-  .section-title{text-align:center;font-size:32px;color:#2E5E3E;margin-bottom:20px;}
-  .section-sub{text-align:center;color:#666;margin-bottom:40px;}
-  .about-grid{display:flex;gap:40px;align-items:center;flex-wrap:wrap;}
-  .about-img{flex:1;min-width:300px;height:350px;background:#ddd;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#888;font-size:18px;}
-  .about-text{flex:1;min-width:300px;line-height:1.8;font-size:16px;}
-  .about-text h3{color:#2E5E3E;margin:20px 0 10px;}
-  /* 优势 */
-  .adv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px;}
-  .adv-item{background:#fff;padding:25px;text-align:center;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
-  .adv-item .icon{font-size:36px;margin-bottom:10px;}
-  .adv-item h4{color:#2E5E3E;margin-bottom:8px;}
-  @media(max-width:768px){.adv-grid{grid-template-columns:repeat(2,1fr);}.nav-links{display:none;}}
+  body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;color:var(--text);background:var(--cream);line-height:1.75;font-size:16px;-webkit-font-smoothing:antialiased;}
+  .container{max-width:1120px;margin:0 auto;padding:0 24px;}
+  a{text-decoration:none;color:inherit;}
+  header{background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100;}
+  .nav-flex{display:flex;align-items:center;justify-content:space-between;height:70px;}
+  .logo{font-size:21px;font-weight:700;color:var(--green);letter-spacing:0.5px;}
+  .nav-links{display:flex;align-items:center;gap:32px;}
+  .nav-links a{font-size:15.5px;color:var(--text);transition:color .25s;}
+  .nav-links a:hover{color:var(--orange);}
+  .nav-links a.active{color:var(--orange);font-weight:600;}
+  .nav-tel{background:var(--green);color:#fff!important;padding:9px 20px;border-radius:30px;font-size:15px;font-weight:600;transition:background .25s;}
+  .nav-tel:hover{background:var(--green-dark);}
+  .breadcrumb{background:var(--green);color:rgba(255,255,255,0.9);padding:14px 0;font-size:14.5px;}
+  .breadcrumb a{color:#fff;opacity:0.85;}
+  .breadcrumb span{margin:0 8px;opacity:0.6;}
+  .page-head{padding:56px 0 44px;text-align:center;}
+  .page-head h1{font-size:34px;font-weight:700;color:var(--green);margin-bottom:12px;letter-spacing:1px;}
+  .page-head p{font-size:16px;color:var(--text-soft);}
+  .section{padding:72px 0;}
+  .section-head{text-align:center;margin-bottom:52px;}
+  .section-head h2{font-size:32px;font-weight:700;color:var(--green);}
+  .section-head p{font-size:16px;color:var(--text-soft);margin-top:10px;}
+  .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .intro-figure{border-radius:18px;overflow:hidden;box-shadow:var(--shadow);}
+  .intro-figure img{width:100%;height:400px;object-fit:cover;}
+  .intro-text h2{font-size:28px;font-weight:700;color:var(--green);margin-bottom:20px;}
+  .intro-text p{font-size:16px;color:var(--text-soft);margin-bottom:14px;}
+  .intro-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+  .intro-tags span{background:rgba(58,107,74,0.08);color:var(--green);padding:7px 16px;border-radius:20px;font-size:14px;font-weight:600;}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:32px 22px;text-align:center;box-shadow:var(--shadow);transition:.35s;}
+  .card:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(58,107,74,0.12);}
+  .card .num{font-size:36px;font-weight:800;color:rgba(58,107,74,0.2);line-height:1;margin-bottom:10px;}
+  .card h3{font-size:18px;font-weight:700;color:var(--green);margin-bottom:8px;}
+  .card p{font-size:14.5px;color:var(--text-soft);}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .pm-card{background:var(--green);color:#fff;border-radius:16px;padding:34px 26px;text-align:center;}
+  .pm-card .ic{font-size:36px;margin-bottom:14px;display:block;}
+  .pm-card h3{font-size:19px;font-weight:700;margin-bottom:10px;}
+  .pm-card p{font-size:14.5px;opacity:0.9;}
+  .cta{background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff;border-radius:24px;padding:60px 40px;text-align:center;margin:0 24px 80px;}
+  .cta h2{font-size:28px;font-weight:700;margin-bottom:12px;}
+  .cta p{font-size:16px;opacity:0.9;margin-bottom:28px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 34px;border-radius:30px;font-size:15.5px;font-weight:600;cursor:pointer;border:none;background:#fff;color:var(--green);transition:.3s;}
+  .btn:hover{background:var(--orange);color:#fff;}
+  footer{background:var(--green-dark);color:#E8E2D6;padding:52px 0 24px;}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:40px;margin-bottom:34px;}
+  .foot-brand .logo{color:#fff;font-size:21px;margin-bottom:14px;}
+  .foot-brand p{font-size:14.5px;color:#C9C2B4;line-height:1.8;}
+  .foot-col h4,.foot-contact h4{font-size:16.5px;font-weight:700;color:#fff;margin-bottom:16px;}
+  .foot-col a{display:block;font-size:14.5px;color:#C9C2B4;margin:9px 0;transition:color .25s;}
+  .foot-col a:hover{color:#fff;}
+  .foot-contact p{font-size:14.5px;color:#C9C2B4;margin:9px 0;}
+  .copyright{text-align:center;font-size:13.5px;color:#A69F91;border-top:1px solid rgba(255,255,255,0.1);padding-top:22px;line-height:1.9;}
+  @media(max-width:900px){.intro-grid{grid-template-columns:1fr;}.grid-4,.grid-3{grid-template-columns:repeat(2,1fr);}.foot-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.grid-4,.grid-3,.foot-grid{grid-template-columns:1fr;}.nav-links{display:none;}.page-head h1{font-size:28px;}.intro-figure img{height:280px;}}
 </style>
 </head>
 <body>
+
 <header>
   <div class="container nav-flex">
     <div class="logo">红军编织袋专卖店</div>
@@ -49,42 +80,88 @@
   </div>
 </header>
 
-<div class="breadcrumb">
-  <div class="container"><a href="index.html">首页</a> / 关于我们</div>
-</div>
+<div class="breadcrumb"><div class="container"><a href="index.html">首页</a><span>/</span>关于我们</div></div>
 
-<div class="about-section container">
-  <h1 class="section-title">关于我们</h1>
-  <p class="section-sub">源头工厂 · 专业生产 · 品质保证 · 诚信经营</p>
-  
-  <div class="about-grid">
-    <div class="about-img">工厂实拍图</div>
-    <div class="about-text">
-      <p>红军编织袋专卖店位于山东日照莒县刘官庄镇，是一家专业从事各类编织袋、包装袋生产加工的源头工厂。</p>
-      <h3>主营产品</h3>
-      <p>各种彩色编织袋、包装袋、塑料袋、缝包线、打包带，支持定制印刷。</p>
-      <h3>经营理念</h3>
-      <p>厂家直销，价格实在；编织线定制，质量保证，合作共赢。多年行业制造经验，自有工厂，交期稳定。</p>
+<div class="page-head"><h1>关于我们</h1><p>源头工厂 · 专业生产 · 品质保证 · 诚信经营</p></div>
+
+<div class="container">
+  <div class="intro-grid">
+    <div class="intro-figure">
+      <img src="images/putong/1.png" alt="工厂实拍" onerror="this.src='https://via.placeholder.com/560x400?text=工厂实拍'">
+    </div>
+    <div class="intro-text">
+      <h2>源头工厂，实力说话</h2>
+      <p>红军编织袋专卖店坐落于山东省日照市莒县刘官庄镇马驹岭村，是一家集研发、生产、销售于一体的编织袋源头厂家。</p>
+      <p>坚持"客户需要什么，我们就做什么"的服务理念，以厂家直销的价格优势、灵活的起订量、稳定的交期，服务全国各地客户。</p>
+      <p>从拉丝、编织、印刷到裁切缝制，全流程自主把控，品质从源头抓起。</p>
+      <div class="intro-tags"><span>厂家直销</span><span>按需定制</span><span>交期稳定</span><span>全国发货</span><span>品质保证</span></div>
     </div>
   </div>
-
-  <div class="adv-grid">
-    <div class="adv-item"><div class="icon">🏭</div><h4>源头工厂</h4><p>自有生产线，厂家直供</p></div>
-    <div class="adv-item"><div class="icon">✅</div><h4>品质保证</h4><p>专业生产，质量可靠</p></div>
-    <div class="adv-item"><div class="icon">🎨</div><h4>支持定制</h4><p>按需印刷，免费报价</p></div>
-    <div class="adv-item"><div class="icon">🤝</div><h4>诚信经营</h4><p>交期稳定，合作共赢</p></div>
-  </div>
 </div>
 
-<footer style="background:#2E5E3E;color:#fff;padding:40px 0;margin-top:40px;">
+<div class="section" style="padding-top:0;">
   <div class="container">
-    <div style="display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;">
-      <div><div class="logo" style="color:#fff;">红军编织袋专卖店</div><p style="margin-top:15px;color:#ccc;font-size:14px;">山东日照莒县源头工厂，支持按需定制印刷。</p></div>
-      <div><h4>快速导航</h4><br><a href="index.html" style="color:#ccc;text-decoration:none;display:block;margin:5px 0;">首页</a><a href="about.html" style="color:#ccc;text-decoration:none;display:block;margin:5px 0;">关于我们</a><a href="products.html" style="color:#ccc;text-decoration:none;display:block;margin:5px 0;">产品中心</a><a href="contact.html" style="color:#ccc;text-decoration:none;display:block;margin:5px 0;">联系我们</a></div>
-      <div><h4>联系方式</h4><br><p>电话：13734322272</p><p>微信：zhangyanan911515</p><p>地址：山东省日照市莒县刘官庄镇马驹岭村</p></div>
+    <div class="section-head"><h2>工厂实力</h2><p>深耕行业十余年，打造值得信赖的包装伙伴</p></div>
+    <div class="grid-4">
+      <div class="card"><div class="num">01</div><h3>自有生产基地</h3><p>规模化生产线，产能充足</p></div>
+      <div class="card"><div class="num">02</div><h3>全流程自产</h3><p>拉丝、编织、印刷一体化</p></div>
+      <div class="card"><div class="num">03</div><h3>严格品控</h3><p>每批产品层层检验</p></div>
+      <div class="card"><div class="num">04</div><h3>物流便捷</h3><p>临近港口高速，全国发货</p></div>
     </div>
-    <div style="text-align:center;margin-top:30px;padding-top:20px;border-top:1px solid #446;color:#ccc;">红军编织袋专卖店 | 源头工厂 · 定制印刷 · 交期稳定</div>
+  </div>
+</div>
+
+<div class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="section-head"><h2>发展历程</h2><p>一步一个脚印，见证我们的成长</p></div>
+    <div class="grid-4">
+      <div class="card"><div class="num">2013</div><h3>起步创业</h3><p>从一台编织机起步</p></div>
+      <div class="card"><div class="num">2016</div><h3>扩大规模</h3><p>引进彩印与复合线</p></div>
+      <div class="card"><div class="num">2020</div><h3>品质升级</h3><p>服务客户突破千家</p></div>
+      <div class="card"><div class="num">2026</div><h3>稳步发展</h3><p>线上线下融合</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="section-head"><h2>主营范围</h2><p>多品类包装袋，一站式采购</p></div>
+    <div class="grid-3">
+      <div class="card"><span class="ic" style="font-size:32px;">🛍️</span><h3>普通编织袋</h3><p>灰袋、白袋、绿袋，多种克重</p></div>
+      <div class="card"><span class="ic" style="font-size:32px;">🎨</span><h3>彩印编织袋</h3><p>高清彩印，随心定制</p></div>
+      <div class="card"><span class="ic" style="font-size:32px;">📦</span><h3>复合编织袋</h3><p>防潮内膜，精细包装</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="section-head"><h2>服务承诺</h2><p>用心服务每一位客户</p></div>
+    <div class="grid-3">
+      <div class="pm-card"><span class="ic">🤝</span><h3>诚信为本</h3><p>实事求是报价，买得放心</p></div>
+      <div class="pm-card"><span class="ic">⚡</span><h3>快速响应</h3><p>询价当天回复，打样迅速</p></div>
+      <div class="pm-card"><span class="ic">🔄</span><h3>售后无忧</h3><p>质量问题包退换</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="cta">
+  <h2>需要定制编织袋？</h2>
+  <p>发个样品图或说清需求，我们免费报价，快速打样</p>
+  <a href="tel:13734322272" class="btn">📞 立即拨打获取报价</a>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand"><div class="logo">红军编织袋专卖店</div><p>山东日照莒县源头工厂，主营普通、彩印、复合编织袋及粮食饲料包装袋，支持按需定制印刷。</p></div>
+      <div class="foot-col"><h4>快速导航</h4><a href="index.html">首页</a><a href="about.html">关于我们</a><a href="products.html">产品中心</a><a href="contact.html">联系我们</a></div>
+      <div class="foot-col"><h4>主营产品</h4><a href="products.html">普通编织袋</a><a href="products.html">彩印编织袋</a><a href="products.html">复合编织袋</a><a href="products.html">粮食饲料袋</a></div>
+      <div class="foot-contact"><h4>联系方式</h4><p><strong style="color:#fff;">电话：</strong>13734322272</p><p><strong style="color:#fff;">微信：</strong>zhangyanan911515</p><p><strong style="color:#fff;">地址：</strong>山东省日照市莒县刘官庄镇马驹岭村</p></div>
+    </div>
+    <div class="copyright">红军编织袋专卖店 | 源头工厂 · 定制印刷 · 交期稳定</div>
   </div>
 </footer>
+
 </body>
 </html>
