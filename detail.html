@@ -5,209 +5,87 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>产品详情 - 红军编织袋专卖店</title>
 <style>
-  :root{--green:#2E5C3E;--green-dark:#234530;--orange:#D97706;--bg:#F8F7F2;--card:#FFFDF8;}
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:#333;line-height:1.6;}
-  a{text-decoration:none;color:inherit;}
-  img{max-width:100%;display:block;}
-
-  .container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px;}
-
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"Microsoft YaHei",sans-serif;background:#FAF7F0;color:#333;}
+  .container{max-width:1200px;margin:0 auto;padding:0 20px;}
   /* 导航 */
-  header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid #eee;}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px;}
-  .logo{display:flex;align-items:center;gap:8px;color:var(--green);}
-  .logo-icon{width:34px;height:34px;background:var(--green);color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:bold;}
-  .logo-text{font-size:20px;font-weight:700;letter-spacing:1px;}
-  .nav-right{display:flex;align-items:center;gap:24px;}
-  nav{display:flex;gap:24px;font-size:15px;}
-  nav a{color:#444;transition:.2s;font-weight:500;}
-  nav a:hover,nav a.active{color:var(--orange);}
-  .back-prod{display:inline-flex;align-items:center;gap:6px;background:var(--green);color:#fff;padding:8px 16px;border-radius:20px;font-size:13.5px;font-weight:600;transition:.25s;white-space:nowrap;}
-  .back-prod:hover{background:var(--orange);transform:translateX(-2px);}
-  .header-tel{background:var(--orange);color:#fff;padding:8px 18px;border-radius:20px;font-size:14px;font-weight:bold;white-space:nowrap;}
-  .header-tel:hover{background:var(--green);}
-
+  header{background:#fff;padding:15px 0;border-bottom:1px solid #eee;}
+  .nav-flex{display:flex;align-items:center;justify-content:space-between;}
+  .logo{font-size:24px;font-weight:bold;color:#2E5E3E;}
+  .nav-links{display:flex;gap:30px;align-items:center;}
+  .nav-links a{text-decoration:none;color:#333;font-size:16px;}
+  .nav-links a.active{color:#E67E22;font-weight:bold;}
+  .nav-tel{background:#E67E22;color:#fff;padding:10px 25px;border-radius:30px;text-decoration:none;font-weight:bold;}
   /* 面包屑 */
-  .breadcrumb{background:var(--green);color:#fff;padding:14px 0;font-size:14px;}
-  .breadcrumb a{color:rgba(255,255,255,0.8);}
-  .breadcrumb a:hover{color:#fff;}
-
-  /* 返回按钮 */
-  .back-bar{padding:20px 0 0;}
-  .back-btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--green);border:1.5px solid var(--green);padding:9px 20px;border-radius:24px;font-size:14px;font-weight:600;cursor:pointer;transition:.25s;}
-  .back-btn:hover{background:var(--green);color:#fff;transform:translateX(-3px);}
-
-  /* 详情主体 */
-  .detail{padding:30px 0 70px;}
-  .detail-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:start;}
-  .gallery{position:sticky;top:100px;}
-  .main-img{width:100%;aspect-ratio:1/1;background:#fff;border-radius:16px;overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(0,0,0,0.06);}
-  .main-img img{width:100%;height:100%;object-fit:cover;}
-  .thumbs{display:grid;grid-template-columns:repeat(5, 1fr);gap:10px;margin-top:14px;}
-  .thumb{aspect-ratio:1/1;background:#fff;border-radius:10px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:.2s;}
-  .thumb img{width:100%;height:100%;object-fit:cover;}
-  .thumb.active{border-color:var(--orange);}
-  .thumb:hover{border-color:var(--green);}
-
-  .info h1{font-size:30px;color:var(--green);margin-bottom:14px;}
-  .info .cat-tag{display:inline-block;background:#E8F0EA;color:var(--green);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:20px;}
-  .info .price{font-size:32px;font-weight:900;color:var(--orange);margin-bottom:6px;}
-  .info .price-note{color:#888;font-size:14px;margin-bottom:28px;}
-  .info .desc{background:var(--card);border-radius:14px;padding:24px;margin-bottom:28px;border:1px solid #F0EBE1;}
-  .info .desc p{color:#555;font-size:15px;line-height:1.9;margin-bottom:10px;}
-  .sell-points{margin-bottom:30px;}
-  .sell-points h3{font-size:17px;color:var(--green);margin-bottom:14px;}
-  .sell-points ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-  .sell-points li{display:flex;align-items:center;gap:8px;color:#555;font-size:14.5px;}
-  .sell-points li::before{content:'✓';color:var(--orange);font-weight:bold;}
-
-  .detail-actions{display:flex;gap:14px;flex-wrap:wrap;}
-  .btn{flex:1;min-width:180px;text-align:center;padding:15px 30px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:.3s;border:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;}
-  .btn-primary{background:var(--green);color:#fff;}
-  .btn-primary:hover{background:var(--green-dark);transform:translateY(-2px);}
-  .btn-ghost{background:#fff;color:var(--green);border:2px solid var(--green);}
-  .btn-ghost:hover{background:var(--green);color:#fff;}
-
-  /* 悬浮返回 */
-  .float-back{position:fixed;right:18px;bottom:24px;z-index:300;width:52px;height:52px;border-radius:50%;background:var(--green);color:#fff;display:none;align-items:center;justify-content:center;font-size:22px;box-shadow:0 6px 20px rgba(46,92,62,0.4);border:none;cursor:pointer;}
-
-  /* 页脚 */
-  footer{background:var(--green-dark);color:#ccc;padding:56px 0 24px;font-size:14px;margin-top:40px;}
-  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:40px;}
-  .foot-brand .logo-text{color:#fff;}
-  .foot-brand p{margin-top:16px;line-height:1.8;color:#aaa;}
-  .foot-col h4{color:#fff;margin-bottom:20px;font-size:16px;}
-  .foot-col a{display:block;margin-bottom:12px;color:#aaa;transition:.2s;}
-  .foot-col a:hover{color:var(--orange);}
-  .foot-contact p{margin-bottom:12px;color:#aaa;}
-  .foot-contact strong{color:#fff;}
-  .copyright{text-align:center;border-top:1px solid #3a5a4a;padding-top:22px;color:#888;font-size:13px;}
-
-  @media(max-width:900px){
-    .detail-grid{grid-template-columns:1fr;gap:30px;}
-    .gallery{position:static;}
-    .float-back{display:flex;}
-    .foot-grid{grid-template-columns:1fr 1fr;gap:30px;}
-  }
-  @media(max-width:560px){
-    .sell-points ul{grid-template-columns:1fr;}
-    .btn{min-width:100%;}
-    .foot-grid{grid-template-columns:1fr;}
-    .header-tel,.back-prod{display:none;}
-    nav{display:none;}
-  }
+  .breadcrumb{background:#2E5E3E;color:#fff;padding:15px 0;font-size:15px;}
+  .breadcrumb a{color:#fff;text-decoration:none;}
+  /* 详情 */
+  .detail-section{padding:50px 0;}
+  .detail-grid{display:flex;gap:40px;flex-wrap:wrap;}
+  .detail-img{flex:1;min-width:300px;height:400px;background:#e8e8e8;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#888;font-size:18px;}
+  .detail-info{flex:1;min-width:300px;}
+  .detail-info h1{font-size:28px;color:#2E5E3E;margin-bottom:15px;}
+  .detail-info .price{color:#E67E22;font-size:24px;font-weight:bold;margin-bottom:20px;}
+  .detail-info p{line-height:1.8;margin-bottom:15px;}
+  .spec-list{background:#fff;padding:20px;border-radius:8px;margin:20px 0;}
+  .spec-list li{list-style:none;padding:8px 0;border-bottom:1px solid #eee;}
+  .spec-list li:last-child{border:none;}
+  .btn-group{margin-top:30px;}
+  .btn{display:inline-block;padding:12px 30px;background:#2E5E3E;color:#fff;text-decoration:none;border-radius:30px;margin-right:15px;font-weight:bold;}
+  .btn.orange{background:#E67E22;}
+  @media(max-width:768px){.nav-links{display:none;}}
 </style>
 </head>
 <body>
-
 <header>
-  <div class="container nav-inner">
-    <a href="index.html" class="logo">
-      <div class="logo-icon">红</div>
-      <div class="logo-text">军编织袋专卖店</div>
-    </a>
-    <div class="nav-right">
-      <a href="products.html" class="back-prod">← 产品中心</a>
-      <nav>
-        <a href="index.html">首页</a>
-        <a href="about.html">关于我们</a>
-        <a href="products.html" class="active">产品中心</a>
-        <a href="contact.html">联系我们</a>
-      </nav>
-      <a href="tel:13734322272" class="header-tel">📞 13734322272</a>
+  <div class="container nav-flex">
+    <div class="logo">红军编织袋专卖店</div>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="about.html">关于我们</a>
+      <a href="products.html" class="active">产品中心</a>
+      <a href="contact.html">联系我们</a>
+      <a href="tel:13734322272" class="nav-tel">📞 13734322272</a>
     </div>
   </div>
 </header>
 
 <div class="breadcrumb">
-  <div class="container"><a href="index.html">首页</a> / <a href="products.html">产品中心</a> / <span id="bc-name">产品详情</span></div>
+  <div class="container"><a href="index.html">首页</a> / <a href="products.html">产品中心</a> / 产品详情</div>
 </div>
 
-<div class="container">
-  <div class="back-bar">
-    <button class="back-btn" onclick="location.href='products.html'">← 返回产品中心</button>
-  </div>
-
-  <div class="detail">
-    <div class="detail-grid">
-      <div class="gallery">
-        <div class="main-img">
-          <img id="main-img" src="" alt="产品主图" onerror="this.src='https://via.placeholder.com/500x500?text=产品图'">
-        </div>
-        <div class="thumbs" id="thumbs"></div>
+<div class="detail-section container">
+  <div class="detail-grid">
+    <div class="detail-img">产品大图展示</div>
+    <div class="detail-info">
+      <h1>普通编织袋（示例）</h1>
+      <div class="price">厂家直销价 · 按需报价</div>
+      <p>承重强、性价比高，适用于粮食、化肥、建材等多种场景。源头工厂生产，品质可靠，交期稳定。</p>
+      
+      <div class="spec-list">
+        <li><strong>材质：</strong>优质聚丙烯（PP）</li>
+        <li><strong>规格：</strong>支持多种尺寸定制</li>
+        <li><strong>印刷：</strong>支持定制印刷 LOGO</li>
+        <li><strong>起订量：</strong>厂家直供，量大从优</li>
       </div>
-      <div class="info">
-        <h1 id="p-name">产品名称</h1>
-        <div class="cat-tag" id="p-cat">分类</div>
-        <div class="price">价格面议</div>
-        <div class="price-note">量大从优 · 支持定制</div>
-        <div class="desc" id="p-desc"></div>
-        <div class="sell-points">
-          <h3>产品优势</h3>
-          <ul id="p-points"></ul>
-        </div>
-        <div class="detail-actions">
-          <a href="tel:13734322272" class="btn btn-primary">📞 立即拨打 13734322272</a>
-          <a href="contact.html" class="btn btn-ghost">咨询定制</a>
-        </div>
+      
+      <div class="btn-group">
+        <a href="tel:13734322272" class="btn">📞 电话咨询</a>
+        <a href="contact.html" class="btn orange">立即定制</a>
       </div>
     </div>
   </div>
 </div>
 
-<button class="float-back" onclick="location.href='products.html'">🛍</button>
-
-<footer>
+<footer style="background:#2E5E3E;color:#fff;padding:40px 0;margin-top:40px;">
   <div class="container">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <a href="index.html" class="logo">
-          <div class="logo-icon">红</div>
-          <div class="logo-text">军编织袋专卖店</div>
-        </a>
-        <p>山东日照莒县源头工厂，主营普通、彩印、复合编织袋及粮食饲料包装袋，支持按需定制印刷。</p>
-      </div>
-      <div class="foot-col">
-        <h4>快速导航</h4>
-        <a href="index.html">首页</a><a href="about.html">关于我们</a>
-        <a href="products.html">产品中心</a><a href="contact.html">联系我们</a>
-      </div>
-      <div class="foot-col">
-        <h4>主营产品</h4>
-        <a href="products.html">普通编织袋</a><a href="products.html">彩印编织袋</a>
-        <a href="products.html">复合编织袋</a><a href="products.html">粮食饲料袋</a>
-      </div>
-      <div class="foot-contact">
-        <h4>联系方式</h4>
-        <p><strong>电话：</strong>13734322272</p>
-        <p><strong>微信：</strong>zhangyanan911515</p>
-        <p><strong>地址：</strong>山东省日照市莒县刘官庄镇马驹岭村</p>
-      </div>
+    <div style="display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;">
+      <div><div class="logo" style="color:#fff;">红军编织袋专卖店</div><p style="margin-top:15px;color:#ccc;font-size:14px;">山东日照莒县源头工厂，支持按需定制印刷。</p></div>
+      <div><h4>快速导航</h4><br><a href="index.html" style="color:#ccc;text-decoration:none;display:block;margin:5px 0;">首页</a><a href="about.html" style="color:#ccc;text-decoration:none;display:block;margin:5px 0;">关于我们</a><a href="products.html" style="color:#ccc;text-decoration:none;display:block;margin:5px 0;">产品中心</a><a href="contact.html" style="color:#ccc;text-decoration:none;display:block;margin:5px 0;">联系我们</a></div>
+      <div><h4>联系方式</h4><br><p>电话：13734322272</p><p>微信：zhangyanan911515</p><p>地址：山东省日照市莒县刘官庄镇马驹岭村</p></div>
     </div>
-    <div class="copyright">红军编织袋专卖店 | 源头工厂 · 定制印刷 · 交期稳定</div>
+    <div style="text-align:center;margin-top:30px;padding-top:20px;border-top:1px solid #446;color:#ccc;">红军编织袋专卖店 | 源头工厂 · 定制印刷 · 交期稳定</div>
   </div>
 </footer>
-
-<script>
-function getParam(name){const u=new URLSearchParams(location.search);return u.get(name);}
-fetch('products.json').then(r=>r.json()).then(data=>{
-  const id=getParam('id');
-  const p=data.find(x=>x.folder.split('/')[1]===id) || data[0];
-  document.getElementById('bc-name').textContent=p.name;
-  document.getElementById('p-name').textContent=p.name;
-  document.getElementById('p-cat').textContent=p.cat||'产品';
-  document.title=p.name+' - 红军编织袋专卖店';
-  document.getElementById('p-desc').innerHTML=(p.longDesc||p.desc||'').split('\n').map(l=>l?`<p>${l}</p>`:'').join('');
-  const points=p.points||['厂家直销','支持定制','交期稳定','品质保证'];
-  document.getElementById('p-points').innerHTML=points.map(pt=>`<li>${pt}</li>`).join('');
-  const imgs=p.imgs||[p.folder+'/1.png'];
-  document.getElementById('main-img').src=imgs[0];
-  const tb=document.getElementById('thumbs');
-  imgs.forEach((src,i)=>{
-    tb.innerHTML+=`<div class="thumb${i===0?' active':''}" onclick="document.getElementById('main-img').src='${src}';document.querySelectorAll('.thumb').forEach(t=>t.classList.remove('active'));this.classList.add('active')"><img src="${src}" onerror="this.style.display='none'"></div>`;
-  });
-}).catch(()=>{document.getElementById('p-name').textContent='产品加载失败';});
-</script>
 </body>
 </html>
