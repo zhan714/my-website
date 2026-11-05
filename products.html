@@ -32,11 +32,6 @@ nav a:hover,nav a.active{color:var(--orange);}
 .section-title{text-align:center;font-size:36px;color:var(--green);margin:40px 0 15px;}
 .section-sub{text-align:center;color:#666;font-size:16px;margin-bottom:30px;}
 
-/* 筛选 */
-#filter{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:30px;}
-#filter button{background:#fff;border:1px solid #ddd;padding:8px 22px;border-radius:20px;cursor:pointer;transition:.3s;}
-#filter button.active,#filter button:hover{background:var(--green);color:#fff;border-color:var(--green);}
-
 /* 产品网格 */
 #prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:25px;margin-bottom:50px;}
 .prod{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,.05);transition:.3s;}
@@ -89,15 +84,6 @@ nav a:hover,nav a.active{color:var(--orange);}
   <h1 class="section-title">产品中心</h1>
   <p class="section-sub">多品类包装袋，源头工厂直供，支持按需定制印刷</p>
   
-  <div id="filter">
-    <button class="active" onclick="filterProd('all',this)">全部</button>
-    <button onclick="filterProd('普通',this)">普通编织袋</button>
-    <button onclick="filterProd('彩印',this)">彩印编织袋</button>
-    <button onclick="filterProd('复合',this)">复合编织袋</button>
-    <button onclick="filterProd('粮食',this)">粮食包装袋</button>
-    <button onclick="filterProd('饲料',this)">饲料化肥袋</button>
-  </div>
-
   <div id="prod-grid"></div>
 </div>
 
@@ -136,30 +122,24 @@ nav a:hover,nav a.active{color:var(--orange);}
 </footer>
 
 <script>
-function filterProd(cat,btn){
-  document.querySelectorAll('#filter button').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  render(cat);
-}
-function render(cat){
-  fetch('products.json').then(r=>r.json()).then(data=>{
-    let grid=document.getElementById('prod-grid');
-    let list=cat==='all'?data:data.filter(p=>(p.cat||'').includes(cat));
-    grid.innerHTML=list.map(p=>{
-      let img=(p.imgs&&p.imgs[0])||(p.folder+'/1.png');
-      return `<a href="detail.html?id=${p.folder.split('/')[1]}" class="prod">
-        <div class="prod-img">
-          <span class="prod-cat">${p.cat||'产品'}</span>
-          <img src="${img}" onerror="this.src='https://via.placeholder.com/400x300?text=产品图'">
-        </div>
-        <div class="prod-info">
-          <h3>${p.name}</h3><p>${p.desc}</p>
-          <span class="more">查看详情 →</span>
-        </div></a>`;
-    }).join('');
-  });
-}
-render('all');
+// 直接全部展示，不做分类筛选
+fetch('products.json').then(r=>r.json()).then(data=>{
+  let grid=document.getElementById('prod-grid');
+  grid.innerHTML=data.map(p=>{
+    let img=(p.imgs&&p.imgs[0])||(p.folder+'/1.png');
+    return `<a href="detail.html?id=${p.folder.split('/')[1]}" class="prod">
+      <div class="prod-img">
+        <span class="prod-cat">${p.cat||'产品'}</span>
+        <img src="${img}" onerror="this.src='https://via.placeholder.com/400x300?text=产品图'">
+      </div>
+      <div class="prod-info">
+        <h3>${p.name}</h3><p>${p.desc}</p>
+        <span class="more">查看详情 →</span>
+      </div></a>`;
+  }).join('');
+}).catch(()=>{
+  document.getElementById('prod-grid').innerHTML='<p style="text-align:center;color:#999;grid-column:1/-1;">产品加载中…</p>';
+});
 </script>
 </body>
 </html>
