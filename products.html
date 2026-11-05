@@ -8,75 +8,87 @@
 body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#FAFAF7;color:#2C2C2C;font-size:15px;line-height:1.7;}
 
 /* 导航 */
-header{background:#fff;border-bottom:1px solid #ECECEC;position:sticky;top:0;z-index:100;}
-.nav{max-width:1100px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;}
-.logo{font-size:17px;font-weight:700;color:#3A6B4A;}
+header{background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid #ECECEC;position:sticky;top:0;z-index:100;}
+.nav{max-width:1120px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-size:17px;font-weight:700;color:#3A6B4A;letter-spacing:0.3px;}
 .nav a{font-size:14px;color:#555;margin-left:28px;text-decoration:none;transition:color .2s;}
 .nav a:hover,.nav a.active{color:#3A6B4A;}
 .nav a.active{font-weight:600;}
 
 /* 标题 */
-.head{max-width:1100px;margin:0 auto;padding:56px 24px 32px;}
-.eyebrow{font-size:12.5px;font-weight:600;letter-spacing:3px;color:#3A6B4A;text-transform:uppercase;margin-bottom:14px;}
-.head h1{font-size:30px;font-weight:800;color:#2C2C2C;}
-.head p{font-size:15px;color:#888;margin-top:10px;max-width:640px;}
+.head{max-width:1120px;margin:0 auto;padding:80px 24px 36px;}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:3px;color:#3A6B4A;text-transform:uppercase;margin-bottom:16px;}
+.head h1{font-size:34px;font-weight:800;color:#2C2C2C;letter-spacing:-0.5px;}
+.head p{font-size:15px;color:#888;margin-top:12px;max-width:620px;}
 
 /* 转化条 */
-.cta-line{background:#3A6B4A;color:#fff;text-align:center;padding:20px 24px;margin-bottom:48px;}
-.cta-line strong{font-size:17px;}
-.cta-line span{opacity:0.9;font-size:14px;margin-left:12px;}
+.cta-line{background:#3A6B4A;color:#fff;text-align:center;padding:22px 24px;margin:0 24px 56px;border-radius:10px;}
+.cta-line strong{font-size:17px;font-weight:700;}
+.cta-line span{opacity:0.9;font-size:14px;margin-left:14px;}
 .cta-line a{color:#fff;font-weight:700;text-decoration:underline;margin-left:6px;}
 
 /* 板块 */
-.section{max-width:1100px;margin:0 auto;padding:0 24px 56px;}
-.section-head{display:flex;align-items:baseline;gap:12px;margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid #ECECEC;}
-.section-head .num{font-size:12.5px;font-weight:600;color:#3A6B4A;background:#F4F1E8;padding:3px 10px;border-radius:4px;}
-.section-head h2{font-size:21px;font-weight:700;color:#2C2C2C;}
-.section-head .desc{font-size:13.5px;color:#999;margin-left:auto;}
+.section{max-width:1120px;margin:0 auto;padding:0 24px 72px;}
+.section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:36px;}
+.section-head .num{font-size:12px;font-weight:700;color:#3A6B4A;background:#F4F1E8;padding:4px 10px;border-radius:5px;letter-spacing:1px;}
+.section-head h2{font-size:22px;font-weight:700;color:#2C2C2C;}
+.section-head .desc{font-size:13.5px;color:#AAA;margin-left:auto;}
 
-.sec-body{display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:start;}
-.intro{background:#fff;border:1px solid #ECECEC;border-radius:8px;padding:20px;}
-.intro .lbl{font-size:11.5px;font-weight:600;letter-spacing:2px;color:#3A6B4A;text-transform:uppercase;margin-bottom:10px;}
-.intro p{font-size:13.5px;color:#AAA;line-height:1.8;min-height:120px;}
-.intro .meta{margin-top:16px;padding-top:16px;border-top:1px dashed #DDD;font-size:13px;color:#999;}
-.intro .meta div{margin-bottom:8px;}
-.intro .meta b{color:#666;font-weight:600;}
+/* 板块头部：大图 + 简介 */
+.sec-top{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center;margin-bottom:32px;}
+.sec-cover{aspect-ratio:16/10;background:#EDEAE0;border-radius:10px;overflow:hidden;}
+.sec-cover img{width:100%;height:100%;object-fit:cover;display:block;}
+.sec-cover .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#BBB;font-size:13px;}
+.sec-intro .lbl{font-size:12px;font-weight:600;letter-spacing:2px;color:#3A6B4A;text-transform:uppercase;margin-bottom:12px;}
+.sec-intro h3{font-size:20px;font-weight:700;color:#2C2C2C;margin-bottom:14px;}
+.sec-intro p{font-size:14.5px;color:#888;line-height:1.8;min-height:80px;}
+.sec-meta{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;margin-top:20px;padding-top:20px;border-top:1px dashed #DDD;}
+.sec-meta div{font-size:13.5px;color:#888;}
+.sec-meta b{color:#3A6B4A;font-weight:600;margin-right:6px;}
 
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
-figure{margin:0;cursor:pointer;background:#fff;border:1px solid #ECECEC;border-radius:8px;overflow:hidden;transition:.25s;}
-figure:hover{border-color:#3A6B4A;transform:translateY(-3px);}
-.pic{aspect-ratio:1;background:#F4F1E8;overflow:hidden;position:relative;}
-.pic img{width:100%;height:100%;object-fit:cover;display:block;transition:.4s;}
-figure:hover .pic img{transform:scale(1.05);}
-.pic .empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:13px;color:#BBB;}
-figcaption{font-size:12.5px;color:#AAA;padding:10px 12px;text-align:center;min-height:38px;display:flex;align-items:center;justify-content:center;}
+/* 网格 */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+figure{margin:0;cursor:pointer;border-radius:10px;overflow:hidden;position:relative;background:#F4F1E8;aspect-ratio:1;}
+figure img{width:100%;height:100%;object-fit:cover;display:block;transition:.5s;}
+figure:hover img{transform:scale(1.06);}
+figure .no-img{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11.5px;color:#C9C2B4;letter-spacing:1px;transition:color .3s;}
+figure:hover .no-img{color:#3A6B4A;}
+figure figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 12px 10px;font-size:12.5px;color:#fff;background:linear-gradient(to top,rgba(0,0,0,0.55),transparent);opacity:0;transition:opacity .3s;pointer-events:none;}
+figure:hover figcaption{opacity:1;}
+figure.hide{display:none;}
+
+/* 展开按钮 */
+.more-wrap{text-align:center;margin-top:28px;}
+.more-btn{background:#fff;border:1px solid #ECECEC;color:#3A6B4A;padding:11px 32px;border-radius:30px;font-size:14px;font-weight:600;cursor:pointer;transition:.3s;}
+.more-btn:hover{border-color:#3A6B4A;background:#3A6B4A;color:#fff;}
 
 /* 灯箱 */
-#lb{position:fixed;inset:0;background:rgba(20,30,25,0.92);display:none;align-items:center;justify-content:center;z-index:999;flex-direction:column;padding:24px;}
+#lb{position:fixed;inset:0;background:rgba(18,28,22,0.94);display:none;align-items:center;justify-content:center;z-index:999;flex-direction:column;padding:24px;}
 #lb.on{display:flex;}
-#lb img{max-width:90%;max-height:75vh;border-radius:8px;}
-#lb-cap{color:#fff;margin-top:16px;font-size:14px;opacity:0.9;}
-#lb .x{position:absolute;top:24px;right:32px;color:#fff;font-size:32px;cursor:pointer;line-height:1;}
-#lb .nav{position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:40px;cursor:pointer;padding:20px;user-select:none;}
-#lb .p{left:8px;} #lb .n{right:8px;}
+#lb img{max-width:88%;max-height:74vh;border-radius:10px;}
+#lb-cap{color:#fff;margin-top:18px;font-size:14px;opacity:0.85;}
+#lb .x{position:absolute;top:24px;right:32px;color:#fff;font-size:34px;cursor:pointer;line-height:1;}
+#lb .nav{position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:42px;cursor:pointer;padding:20px;user-select:none;opacity:0.7;transition:opacity .2s;}
+#lb .nav:hover{opacity:1;}
+#lb .p{left:10px;} #lb .n{right:10px;}
 
 /* 底部条 */
-.band{background:#3A6B4A;color:#fff;padding:44px 24px;text-align:center;margin-top:24px;}
-.band h3{font-size:20px;font-weight:700;margin-bottom:8px;}
-.band p{font-size:14px;opacity:0.85;margin-bottom:22px;}
-.band a{display:inline-block;background:#fff;color:#3A6B4A;padding:12px 28px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;margin:0 6px;}
+.band{background:#3A6B4A;color:#fff;padding:48px 24px;text-align:center;margin:8px 24px 0;border-radius:10px;}
+.band h3{font-size:20px;font-weight:700;margin-bottom:10px;}
+.band p{font-size:14px;opacity:0.85;margin-bottom:24px;}
+.band a{display:inline-block;background:#fff;color:#3A6B4A;padding:12px 28px;border-radius:30px;font-size:14px;font-weight:600;text-decoration:none;margin:0 6px;}
 
 /* 页脚 */
-footer{background:#F4F1E8;padding:40px 24px 24px;}
-.foot{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:24px;}
-.info h4,.links h4{font-size:15px;font-weight:700;margin-bottom:8px;}
-.info p,.links a{font-size:13.5px;color:#666;margin:4px 0;display:block;text-decoration:none;}
-.copy{max-width:1100px;margin:0 auto;padding-top:20px;border-top:1px solid #DDD;font-size:12.5px;color:#999;text-align:center;}
+footer{background:#F4F1E8;padding:48px 24px 28px;margin-top:56px;}
+.foot{max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:28px;}
+.info h4,.links h4{font-size:15px;font-weight:700;color:#2C2C2C;margin-bottom:10px;}
+.info p,.links a{font-size:13.5px;color:#666;margin:5px 0;display:block;text-decoration:none;}
+.copy{max-width:1120px;margin:0 auto;padding-top:22px;border-top:1px solid #DDD;font-size:12.5px;color:#999;text-align:center;}
 
 @media(max-width:768px){
   .grid{grid-template-columns:repeat(3,1fr);}
-  .sec-body{grid-template-columns:1fr;gap:20px;}
-  .head h1{font-size:24px;}
+  .sec-top{grid-template-columns:1fr;gap:28px;}
+  .head h1{font-size:26px;}
 }
 @media(max-width:480px){
   .grid{grid-template-columns:repeat(2,1fr);}
@@ -102,7 +114,7 @@ footer{background:#F4F1E8;padding:40px 24px 24px;}
 <div class="head">
   <div class="eyebrow">PRODUCTS</div>
   <h1>产品中心</h1>
-  <p>以下为各品类实拍展示，支持按需定制印刷。看中哪款，电话或微信直接联系，我们免费报价、快速打样。</p>
+  <p>各品类实拍展示，支持按需定制印刷。看中哪款，电话或微信直接联系，免费报价、快速打样。</p>
 </div>
 
 <div class="cta-line">
@@ -156,22 +168,25 @@ footer{background:#F4F1E8;padding:40px 24px 24px;}
 /* ===== 产品配置：只改这里 ===== */
 const sections=[
   {
-    id:"putong", name:"普通编织袋", slot:20,
-    intro:"后期编辑",          // ← 板块介绍，后期替换成你的文字
+    id:"putong", name:"普通编织袋", slot:20, show:8,
+    cover:"images/putong/1.jpg",
+    intro:"后期编辑",
     meta:{"适用场景":"后期编辑","材质":"后期编辑","定制":"后期编辑","交期":"后期编辑"}
   },
   {
-    id:"caiyin", name:"彩印编织袋", slot:20,
+    id:"caiyin", name:"彩印编织袋", slot:20, show:8,
+    cover:"images/caiyin/1.jpg",
     intro:"后期编辑",
     meta:{"印刷工艺":"后期编辑","适用场景":"后期编辑","定制":"后期编辑","交期":"后期编辑"}
   },
   {
-    id:"fuhe", name:"复合与粮食饲料袋", slot:20,
+    id:"fuhe", name:"复合与粮食饲料袋", slot:20, show:8,
+    cover:"images/fuhe/1.jpg",
     intro:"后期编辑",
     meta:{"适用品类":"后期编辑","防潮性能":"后期编辑","定制":"后期编辑","交期":"后期编辑"}
   },
 ];
-const ext=".jpg";   // 图片后缀：jpg 或 png
+const ext=".jpg";
 /* ============================== */
 
 let allImgs=[];
@@ -183,43 +198,55 @@ function build(){
     let figs="";
     for(let i=1;i<=s.slot;i++){
       const src=`images/${s.id}/${i}${ext}`;
-      figs+=`<figure onclick='openLb(${allImgs.length})'>
-        <div class="pic">
-          <img src="${src}" alt="${s.name} ${i}" onerror="this.style.display='none'">
-          <div class="empty">图位 ${String(i).padStart(2,'0')}</div>
-        </div>
+      const hide=i>s.show?' hide':'';
+      figs+=`<figure class="${hide}" onclick='openLb(${allImgs.length})'>
+        <img src="${src}" alt="${s.name} ${i}" onerror="this.style.display='none'">
+        <div class="no-img">${String(i).padStart(2,'0')}</div>
         <figcaption>后期编辑</figcaption>
       </figure>`;
-      allImgs.push({src:src, cap:`${s.name} · 图位 ${String(i).padStart(2,'0')}`});
+      allImgs.push({src:src, cap:`${s.name} · ${String(i).padStart(2,'0')}`});
     }
-    const metaHtml=Object.entries(s.meta).map(([k,v])=>`<div><b>${k}：</b>${v}</div>`).join('');
+    const meta=Object.entries(s.meta).map(([k,v])=>`<div><b>${k}</b>${v}</div>`).join('');
     html+=`<section class="section" id="s-${s.id}">
       <div class="section-head">
         <span class="num">0${si+1}</span>
         <h2>${s.name}</h2>
-        <span class="desc">共预留 ${s.slot} 个图位</span>
+        <span class="desc">预留 ${s.slot} 个图位 · 已展示 ${Math.min(s.show,s.slot)} 个</span>
       </div>
-      <div class="sec-body">
-        <div class="intro">
-          <div class="lbl">板块介绍</div>
-          <p>${s.intro}</p>
-          <div class="meta">${metaHtml}</div>
+      <div class="sec-top">
+        <div class="sec-cover">
+          <img src="${s.cover}" alt="${s.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="ph" style="display:none;">板块配图</div>
         </div>
-        <div class="grid">${figs}</div>
+        <div class="sec-intro">
+          <div class="lbl">ABOUT THIS SERIES</div>
+          <h3>${s.name}</h3>
+          <p>${s.intro}</p>
+          <div class="sec-meta">${meta}</div>
+        </div>
       </div>
+      <div class="grid">${figs}</div>
+      ${s.slot>s.show?`<div class="more-wrap"><button class="more-btn" onclick="toggleMore(this,'${s.id}',${s.slot})">查看全部 ${s.slot} 张 +</button></div>`:''}
     </section>`;
   });
   box.innerHTML=html;
+}
+
+function toggleMore(btn,id,total){
+  const figs=btn.closest('.section').querySelectorAll('.grid figure');
+  const expanded=btn.dataset.open==='1';
+  figs.forEach((f,i)=>{ if(i<8)return; f.classList.toggle('hide',expanded); });
+  btn.dataset.open=expanded?'0':'1';
+  btn.textContent=expanded?`查看全部 ${total} 张 +`:'收起 −';
 }
 
 /* 灯箱 */
 let cur=0;
 function openLb(i){
   cur=i;
-  document.getElementById('lb').classList.add('on');
-  const img=document.getElementById('lb-img');
-  img.onload=()=>{};
-  img.src=allImgs[i].src;
+  const lb=document.getElementById('lb');
+  lb.classList.add('on');
+  document.getElementById('lb-img').src=allImgs[i].src;
   document.getElementById('lb-cap').textContent=allImgs[i].cap;
 }
 function closeLb(){document.getElementById('lb').classList.remove('on');}
