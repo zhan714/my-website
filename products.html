@@ -5,140 +5,108 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>产品中心 - 红军编织袋专卖店</title>
 <style>
-:root{--green:#2b5e3b;--light:#f5f7f0;--orange:#d97706;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:"Microsoft YaHei",sans-serif;background:var(--light);color:#333;}
-a{text-decoration:none;color:inherit;}
-.container{max-width:1200px;margin:0 auto;padding:0 20px;}
-
-/* 头部 */
-header{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.08);position:sticky;top:0;z-index:100;}
-.head-top{display:flex;align-items:center;justify-content:space-between;padding:15px 0;}
-.logo{display:flex;align-items:center;gap:10px;}
-.logo-icon{background:var(--green);color:#fff;width:42px;height:42px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:bold;}
-.logo-text{font-size:24px;font-weight:bold;color:var(--green);}
-.nav-right{display:flex;align-items:center;gap:25px;}
-nav{display:flex;gap:25px;}
-nav a{color:#333;font-size:16px;transition:.3s;}
-nav a:hover,nav a.active{color:var(--orange);}
-.header-tel{background:var(--orange);color:#fff;padding:10px 20px;border-radius:30px;font-weight:bold;}
-
-/* 面包屑 */
-.breadcrumb{background:var(--green);color:#fff;padding:12px 0;font-size:15px;}
-.breadcrumb a{color:#fff;opacity:.8;}
-.breadcrumb span{margin:0 8px;}
-
-/* 标题 */
-.section-title{text-align:center;font-size:36px;color:var(--green);margin:40px 0 15px;}
-.section-sub{text-align:center;color:#666;font-size:16px;margin-bottom:30px;}
-
-/* 产品网格 */
-#prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:25px;margin-bottom:50px;}
-.prod{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,.05);transition:.3s;}
-.prod:hover{transform:translateY(-5px);box-shadow:0 8px 25px rgba(0,0,0,.1);}
-.prod-img{position:relative;height:220px;background:#eee;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.prod-img img{width:100%;height:100%;object-fit:cover;}
-.prod-cat{position:absolute;top:12px;left:12px;background:var(--orange);color:#fff;padding:4px 10px;border-radius:4px;font-size:12px;}
-.prod-info{padding:18px;}
-.prod-info h3{color:var(--green);font-size:20px;margin-bottom:8px;}
-.prod-info p{color:#666;font-size:14px;margin-bottom:12px;}
-.more{color:var(--orange);font-size:14px;}
-
-/* 悬浮返回 */
-.float-back{position:fixed;bottom:30px;right:30px;width:50px;height:50px;background:var(--green);color:#fff;border:none;border-radius:50%;font-size:22px;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,.2);z-index:99;}
-
-@media(max-width:768px){
-  .nav-right nav{display:none;}
-  .head-top{flex-wrap:wrap;}
-  #prod-grid{grid-template-columns:1fr;}
-}
+  :root{--green:#3A6B4A;--green-dark:#2C5240;--cream:#FBF7EF;--card:#FFFFFF;--text:#3A3A3A;--text-soft:#6B6B6B;--orange:#C8862E;--line:#EDE6DA;--shadow:0 6px 24px rgba(58,107,74,0.06);}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;color:var(--text);background:var(--cream);line-height:1.75;font-size:16px;-webkit-font-smoothing:antialiased;}
+  .container{max-width:1120px;margin:0 auto;padding:0 24px;}
+  a{text-decoration:none;color:inherit;}
+  header{background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100;}
+  .nav-flex{display:flex;align-items:center;justify-content:space-between;height:70px;}
+  .logo{font-size:21px;font-weight:700;color:var(--green);letter-spacing:0.5px;}
+  .nav-links{display:flex;align-items:center;gap:32px;}
+  .nav-links a{font-size:15.5px;color:var(--text);transition:color .25s;}
+  .nav-links a:hover{color:var(--orange);}
+  .nav-links a.active{color:var(--orange);font-weight:600;}
+  .nav-tel{background:var(--green);color:#fff!important;padding:9px 20px;border-radius:30px;font-size:15px;font-weight:600;transition:background .25s;}
+  .nav-tel:hover{background:var(--green-dark);}
+  .breadcrumb{background:var(--green);color:rgba(255,255,255,0.9);padding:14px 0;font-size:14.5px;}
+  .breadcrumb a{color:#fff;opacity:0.85;}
+  .breadcrumb span{margin:0 8px;opacity:0.6;}
+  .page-head{padding:56px 0 16px;text-align:center;}
+  .page-head h1{font-size:34px;font-weight:700;color:var(--green);margin-bottom:12px;}
+  .page-head p{font-size:16px;color:var(--text-soft);}
+  .section-head{text-align:center;margin:48px 0 44px;}
+  .section-head h2{font-size:32px;font-weight:700;color:var(--green);}
+  .section-head p{font-size:16px;color:var(--text-soft);margin-top:10px;}
+  .cat-title{display:flex;align-items:center;gap:14px;margin:56px 0 28px;}
+  .cat-title::before{content:"";width:6px;height:26px;background:var(--orange);border-radius:3px;}
+  .cat-title h3{font-size:24px;font-weight:700;color:var(--green);}
+  .prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-bottom:40px;}
+  .prod-card{background:var(--card);border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);transition:.35s;display:block;}
+  .prod-card:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(58,107,74,0.12);}
+  .prod-card .thumb{height:240px;background:#F2EEE5;overflow:hidden;position:relative;}
+  .prod-card .thumb img{width:100%;height:100%;object-fit:cover;transition:.5s;}
+  .prod-card:hover .thumb img{transform:scale(1.06);}
+  .prod-card .cat-tag{position:absolute;top:14px;left:14px;background:rgba(58,107,74,0.92);color:#fff;padding:5px 14px;border-radius:20px;font-size:12.5px;font-weight:600;}
+  .prod-card .info{padding:22px;}
+  .prod-card h4{font-size:19px;font-weight:700;color:var(--green);margin-bottom:8px;}
+  .prod-card p{font-size:14.5px;color:var(--text-soft);margin-bottom:14px;}
+  .prod-card .more{font-size:14.5px;font-weight:600;color:var(--orange);}
+  footer{background:var(--green-dark);color:#E8E2D6;padding:52px 0 24px;}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:40px;margin-bottom:34px;}
+  .foot-brand .logo{color:#fff;font-size:21px;margin-bottom:14px;}
+  .foot-brand p{font-size:14.5px;color:#C9C2B4;line-height:1.8;}
+  .foot-col h4,.foot-contact h4{font-size:16.5px;font-weight:700;color:#fff;margin-bottom:16px;}
+  .foot-col a{display:block;font-size:14.5px;color:#C9C2B4;margin:9px 0;transition:color .25s;}
+  .foot-col a:hover{color:#fff;}
+  .foot-contact p{font-size:14.5px;color:#C9C2B4;margin:9px 0;}
+  .copyright{text-align:center;font-size:13.5px;color:#A69F91;border-top:1px solid rgba(255,255,255,0.1);padding-top:22px;line-height:1.9;}
+  @media(max-width:900px){.prod-grid{grid-template-columns:repeat(2,1fr);}.foot-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.prod-grid,.foot-grid{grid-template-columns:1fr;}.nav-links{display:none;}.page-head h1{font-size:28px;}}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="container head-top">
-    <a href="index.html" class="logo">
-      <div class="logo-icon">红</div>
-      <div class="logo-text">军编织袋专卖店</div>
-    </a>
-    <div class="nav-right">
-      <nav>
-        <a href="index.html">首页</a>
-        <a href="about.html">关于我们</a>
-        <a href="products.html" class="active">产品中心</a>
-        <a href="contact.html">联系我们</a>
-      </nav>
-      <a href="tel:13734322272" class="header-tel">📞 13734322272</a>
+  <div class="container nav-flex">
+    <div class="logo">红军编织袋专卖店</div>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="about.html">关于我们</a>
+      <a href="products.html" class="active">产品中心</a>
+      <a href="contact.html">联系我们</a>
+      <a href="tel:13734322272" class="nav-tel">📞 13734322272</a>
     </div>
   </div>
 </header>
 
-<div class="breadcrumb">
-  <div class="container">
-    <a href="index.html">首页</a><span>/</span><a href="products.html">产品中心</a>
-  </div>
-</div>
+<div class="breadcrumb"><div class="container"><a href="index.html">首页</a><span>/</span>产品中心</div></div>
 
-<div class="container">
-  <h1 class="section-title">产品中心</h1>
-  <p class="section-sub">多品类包装袋，源头工厂直供，支持按需定制印刷</p>
-  
-  <div id="prod-grid"></div>
-</div>
+<div class="page-head"><h1>产品中心</h1><p>多品类包装袋，源头工厂直供，支持按需定制印刷</p></div>
 
-<button class="float-back" onclick="location.href='products.html'">🛍</button>
+<div class="container" id="list"></div>
 
 <footer>
   <div class="container">
-    <div class="foot-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:30px;padding:40px 0;">
-      <div class="foot-brand">
-        <a href="index.html" class="logo"><div class="logo-icon">红</div><div class="logo-text">军编织袋专卖店</div></a>
-        <p style="margin-top:15px;color:#ccc;font-size:14px;">山东日照莒县源头工厂，主营普通、彩印、复合编织袋及粮食饲料包装袋，支持按需定制印刷。</p>
-      </div>
-      <div class="foot-col">
-        <h4 style="color:#fff;margin-bottom:15px;">快速导航</h4>
-        <a href="index.html" style="display:block;color:#ccc;margin:8px 0;">首页</a>
-        <a href="about.html" style="display:block;color:#ccc;margin:8px 0;">关于我们</a>
-        <a href="products.html" style="display:block;color:#ccc;margin:8px 0;">产品中心</a>
-        <a href="contact.html" style="display:block;color:#ccc;margin:8px 0;">联系我们</a>
-      </div>
-      <div class="foot-col">
-        <h4 style="color:#fff;margin-bottom:15px;">主营产品</h4>
-        <a href="products.html" style="display:block;color:#ccc;margin:8px 0;">普通编织袋</a>
-        <a href="products.html" style="display:block;color:#ccc;margin:8px 0;">彩印编织袋</a>
-        <a href="products.html" style="display:block;color:#ccc;margin:8px 0;">复合编织袋</a>
-        <a href="products.html" style="display:block;color:#ccc;margin:8px 0;">粮食饲料袋</a>
-      </div>
-      <div class="foot-contact">
-        <h4 style="color:#fff;margin-bottom:15px;">联系方式</h4>
-        <p style="color:#ccc;margin:8px 0;"><strong style="color:#fff;">电话：</strong>13734322272</p>
-        <p style="color:#ccc;margin:8px 0;"><strong style="color:#fff;">微信：</strong>zhangyanan911515</p>
-        <p style="color:#ccc;margin:8px 0;"><strong style="color:#fff;">地址：</strong>山东省日照市莒县刘官庄镇马驹岭村</p>
-      </div>
+    <div class="foot-grid">
+      <div class="foot-brand"><div class="logo">红军编织袋专卖店</div><p>山东日照莒县源头工厂，主营普通、彩印、复合编织袋及粮食饲料包装袋，支持按需定制印刷。</p></div>
+      <div class="foot-col"><h4>快速导航</h4><a href="index.html">首页</a><a href="about.html">关于我们</a><a href="products.html">产品中心</a><a href="contact.html">联系我们</a></div>
+      <div class="foot-col"><h4>主营产品</h4><a href="products.html">普通编织袋</a><a href="products.html">彩印编织袋</a><a href="products.html">复合编织袋</a><a href="products.html">粮食饲料袋</a></div>
+      <div class="foot-contact"><h4>联系方式</h4><p><strong style="color:#fff;">电话：</strong>13734322272</p><p><strong style="color:#fff;">微信：</strong>zhangyanan911515</p><p><strong style="color:#fff;">地址：</strong>山东省日照市莒县刘官庄镇马驹岭村</p></div>
     </div>
-    <div class="copyright" style="text-align:center;color:#999;padding:20px 0;border-top:1px solid #444;">© 2026 红军编织袋专卖店 | 源头工厂 · 定制印刷 · 交期稳定</div>
+    <div class="copyright">红军编织袋专卖店 | 源头工厂 · 定制印刷 · 交期稳定</div>
   </div>
 </footer>
 
 <script>
-// 直接全部展示，不做分类筛选
 fetch('products.json').then(r=>r.json()).then(data=>{
-  let grid=document.getElementById('prod-grid');
-  grid.innerHTML=data.map(p=>{
-    let img=(p.imgs&&p.imgs[0])||(p.folder+'/1.png');
-    return `<a href="detail.html?id=${p.folder.split('/')[1]}" class="prod">
-      <div class="prod-img">
-        <span class="prod-cat">${p.cat||'产品'}</span>
-        <img src="${img}" onerror="this.src='https://via.placeholder.com/400x300?text=产品图'">
-      </div>
-      <div class="prod-info">
-        <h3>${p.name}</h3><p>${p.desc}</p>
-        <span class="more">查看详情 →</span>
-      </div></a>`;
-  }).join('');
+  // 按分类分组展示
+  const groups={};
+  data.forEach(p=>{const c=p.cat||'其他';(groups[c]=groups[c]||[]).push(p);});
+  let html='';
+  Object.keys(groups).forEach(c=>{
+    html+=`<div class="cat-title"><h3>${c}</h3></div><div class="prod-grid">`;
+    groups[c].forEach(p=>{
+      const img=(p.imgs&&p.imgs[0])||(p.folder+'/1.png');
+      html+=`<a href="detail.html?id=${p.folder.split('/')[1]}" class="prod-card">
+        <div class="thumb"><span class="cat-tag">${p.cat||'产品'}</span><img src="${img}" onerror="this.src='https://via.placeholder.com/400x300?text=产品图'"></div>
+        <div class="info"><h4>${p.name}</h4><p>${p.desc}</p><span class="more">查看详情 →</span></div></a>`;
+    });
+    html+=`</div>`;
+  });
+  document.getElementById('list').innerHTML=html;
 }).catch(()=>{
-  document.getElementById('prod-grid').innerHTML='<p style="text-align:center;color:#999;grid-column:1/-1;">产品加载中…</p>';
+  document.getElementById('list').innerHTML='<p style="text-align:center;color:#999;">产品加载中…</p>';
 });
 </script>
 </body>
